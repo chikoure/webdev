@@ -15,4 +15,11 @@
       color: #34495e;
     }
   }
+  .explore {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 60px;
+    align-items: center;
+  }
 }

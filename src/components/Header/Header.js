@@ -17,8 +17,10 @@ const Header = () => {
         </h1>
         <Button classe={'btn btn--signup'}>INSCRIVEZ-VOUS</Button>
       </div>
-
-      <SocialMedia classe={'social-container-header'} />
+      <div className='explore'>
+        <SocialMedia classe={'social-container-header'} />
+        <Button classe={'btn btn--explore'}>EXPLORE </Button>
+      </div>
     </div>
   );
 };
