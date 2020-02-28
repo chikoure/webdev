@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Aux from '../../hoc/Aux';
+import Hoc from '../../hoc/Hoc';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Headline from '../UI/Headlines/Headline/HeadLine';
@@ -12,7 +12,7 @@ import icon4 from '../../assets/img/icon4.svg';
 export default class Layout extends Component {
   render() {
     return (
-      <Aux>
+      <Hoc>
         <Header />
         <article className='presentation'>
           <div className='test'>
@@ -47,7 +47,7 @@ export default class Layout extends Component {
         <article></article>
         <article></article>
         <Footer />
-      </Aux>
+      </Hoc>
     );
   }
 }
