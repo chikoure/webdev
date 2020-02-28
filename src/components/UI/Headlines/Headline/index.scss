@@ -1,25 +1,23 @@
-.big-headline {
-  font-size: 52px;
+.headline {
   font-family: 'Montserrat';
   font-weight: bold;
-  margin: 0;
-
-  padding-top: 30px;
-  text-align: center;
+  margin: 0 auto;
 }
 
-.medium-headline {
-  font-size: 32px;
-  font-family: 'Montserrat';
-  font-weight: bold;
-  margin: 0;
-}
-
-.small-headline {
-  font-size: 25px;
-  font-family: 'Montserrat';
-  font-weight: bold;
-  margin: 0;
+.headline {
+  &--big {
+    font-size: 52px;
+    padding-top: 30px;
+    text-align: center;
+    letter-spacing: 10px;
+    line-height: 63px;
+  }
+  &--medium {
+    font-size: 32px;
+  }
+  &--small {
+    font-size: 25px;
+  }
 }
 
 .paragraph {
@@ -28,6 +26,5 @@
   font-weight: normal;
   text-align: center;
   margin: 0;
-  width: 55%;
   padding-top: 30px;
 }

@@ -8,6 +8,8 @@ import icon1 from '../../assets/img/icon1.svg';
 import icon2 from '../../assets/img/icon2.svg';
 import icon3 from '../../assets/img/icon3.svg';
 import icon4 from '../../assets/img/icon4.svg';
+import Card from '../../components/UI/cards/Card';
+import Button from '../UI/Buttons/Button';
 
 export default class Layout extends Component {
   render() {
@@ -16,19 +18,21 @@ export default class Layout extends Component {
         <Header />
         <article className='presentation'>
           <div className='test'>
-            <div>
+            <div className='webdev'>
               <p>Voici WeDev</p>
             </div>
 
-            <Headline classe={'big-headline'}>
-              APPLICATION DE GESTION DE PROJET POUR LES DEV
-            </Headline>
-            <Headline classe={'paragraph'}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </Headline>
+            <div className='headline-container'>
+              <Headline classe={'headline headline--big'}>
+                APPLICATION DE GESTION DE PROJET POUR LES DEV
+              </Headline>
+              <Headline classe={'paragraph'}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </Headline>
+            </div>
           </div>
 
           <div className='icons'>
@@ -45,7 +49,18 @@ export default class Layout extends Component {
           </div>
         </article>
         <article></article>
-        <article></article>
+        <article className='offers'>
+          <Card>
+            <Headline classe='headline headline--medium'>
+              OFFRE DE LANCEMENT
+            </Headline>
+            <Headline classe='headline headline--small'>
+              inscrivez-vous et recevez prochainement un accès premium à
+              l’application WeAreData
+            </Headline>
+            <Button classe='btn btn--offerSignup'>JE M'INSCRIS</Button>
+          </Card>
+        </article>
         <Footer />
       </Hoc>
     );
