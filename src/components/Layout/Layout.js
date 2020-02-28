@@ -52,7 +52,7 @@ export default class Layout extends Component {
         </article>
         <article className='flex ecart'>
           <div>
-            <Headline classe={'lien-headline'}>Comment ça marche ?</Headline>
+            <Headline classe={'headline headline--lien'}>Comment ça marche ?</Headline>
             <Dashboard title={'Tous vos outils de dev réuni sur une seule application'}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut

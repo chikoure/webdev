@@ -18,6 +18,13 @@
   &--small {
     font-size: 25px;
   }
+  &--lien {
+    color: #1ABC9C;
+    font-size: 15px;
+    letter-spacing: 2px;
+    line-height: 19px;
+    margin-bottom: 10px;
+  }
 }
 
 .paragraph {
@@ -26,13 +33,4 @@
   font-weight: normal;
   margin: 0;
   padding-top: 30px;
-}
-
-.lien-headline {
-  color: #1ABC9C;
-  font-family: 'Montserrat';
-  font-size: 15px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  line-height: 19px;
 }

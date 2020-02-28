@@ -6,7 +6,7 @@ import Hoc from '../../../hoc/Hoc'
 const Dashboard = (props) => {
   return <Hoc>
       <span className='dashboard'>
-        <HeadLine classe={'small-headline'}>{props.title}</HeadLine>
+        <HeadLine classe={'headline headline--small'}>{props.title}</HeadLine>
         <HeadLine classe={'paragraph'}>{props.children}</HeadLine>
       </span>
     </Hoc>;
