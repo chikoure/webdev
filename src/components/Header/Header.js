@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../Logo/Logo';
-import ButtonLogin from '../UI/Buttons/ButtonLogin';
+import Button from '../UI/Buttons/Button';
 import logoHeader from '../../assets/img/logo.svg';
 import SocialMedia from '../UI/Icons/SocialMedia/SocialMedia';
 
@@ -9,13 +9,13 @@ const Header = () => {
     <div className='main-header'>
       <div className='login'>
         <Logo logoLink={logoHeader} />
-        <ButtonLogin classe={'btn-login'}>LOGIN</ButtonLogin>
+        <Button classe={'btn btn--login'}>LOGIN</Button>
       </div>
       <div className='sign-up'>
         <h1>
           Oû que vous soyez <br></br>Restez <strong>Freelance</strong>
         </h1>
-        <ButtonLogin classe={'btn-signUp'}>INSCRIVEZ-VOUS</ButtonLogin>
+        <Button classe={'btn btn--signup'}>INSCRIVEZ-VOUS</Button>
       </div>
 
       <SocialMedia classe={'social-container-header'} />

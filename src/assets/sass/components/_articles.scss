@@ -9,13 +9,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 70px 219px;
-  div {
+  .webdev {
     width: 30%;
     border: 5px solid white;
     padding: 10px 10px;
     text-align: center;
     margin-bottom: 20px;
-    p {
+    .webdev p {
       color: #ffffff;
       font-family: 'Montserrat';
       font-size: 25px;
@@ -35,6 +35,9 @@
 
 .ecart {
   margin: 5%;
+}
+
+.headline-container {
 }
 
 .icons {
@@ -58,4 +61,11 @@
 .services p {
   width: 19%;
   font-size: 18px;
+}
+
+.offers {
+  background: url('../../img/bg-img.png') left 80% bottom 30% / cover no-repeat;
+  display: flex;
+  justify-content: center;
+  padding: 350px 0;
 }

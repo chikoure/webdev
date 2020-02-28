@@ -1,25 +1,35 @@
-.btn-login {
+.btn {
   box-sizing: border-box;
-  padding: 12px 60px;
   font-size: 16px;
   cursor: pointer;
   outline: none;
-  color: #434242;
   text-align: center;
   font-weight: bold;
-  border: 2px solid #34495e;
   border-radius: 27.5px;
-  background-color: #ecf0f1;
+  display: inline-block;
 }
 
-.btn-signUp {
-  background-color: #2091dc;
-  color: #ffffff;
-  cursor: pointer;
-  outline: none;
-  text-align: center;
-  font-weight: bold;
-  border-radius: 27.5px;
-  padding: 12px 30px;
-  font-size: 16px;
+.btn {
+  &--login {
+    padding: 12px 60px;
+
+    color: #434242;
+
+    border: 2px solid #34495e;
+
+    background-color: #ecf0f1;
+  }
+  &--signup {
+    background-color: #2091dc;
+    color: #ffffff;
+
+    padding: 12px 30px;
+  }
+  &--offerSignup {
+    border: 2px solid #2ecc71;
+    border-radius: 3px;
+    background-color: #2ecc71;
+    padding: 12px 40px;
+    color: #ffffff;
+  }
 }
