@@ -1,5 +1,18 @@
 .main-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
+  background: url('../../img/hero.png') left 60% bottom 20% / auto no-repeat;
+
+  .login {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  .sign-up {
+    padding: 180px 100px;
+    h1 {
+      font-family: 'Montserrat Bold';
+      font-size: 42px;
+      font-style: normal;
+      color: #34495e;
+    }
+  }
 }
