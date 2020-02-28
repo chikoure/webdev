@@ -25,6 +25,18 @@
   }
 }
 
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 5%;
+}
+
+.ecart {
+  margin: 5%;
+}
+
 .icons {
   display: flex;
   flex-direction: row;

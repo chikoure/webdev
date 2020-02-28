@@ -3,6 +3,8 @@ import Hoc from '../../hoc/Hoc';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Headline from '../UI/Headlines/Headline/HeadLine';
+import Dashboard from '../UI/Dashboard/Dashboard';
+import Plan from '../UI/Plan/Plan';
 import Icon from '../UI/Icons/Icon';
 import icon1 from '../../assets/img/icon1.svg';
 import icon2 from '../../assets/img/icon2.svg';
@@ -44,7 +46,37 @@ export default class Layout extends Component {
             <p>Des utilitaires pour votre dev</p>
           </div>
         </article>
-        <article></article>
+        <article className='flex ecart'>
+          <div>
+            <Headline classe={'lien-headline'}>Comment ça marche ?</Headline>
+            <Dashboard title={'Tous vos outils de dev réuni sur une seule application'}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </Dashboard>
+          </div>
+          <div>
+            <Plan number={'1'} title={'Créer vos projets'}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </Plan>
+            <Plan number={'2'} title={'Ajoutez vos sprints'}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </Plan>
+            <Plan number={'3'} title={'Affectez vos tâches'}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.  
+            </Plan>
+          </div>
+        </article>
         <article></article>
         <Footer />
       </Hoc>
