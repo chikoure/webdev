@@ -10,17 +10,16 @@ const Header = () => {
     <div className='main-header'>
       <div className='login'>
         <Logo logoLink={logoHeader} />
-        <Button classe={'btn btn--login'}>
-          <Link to='/login'>LOGIN</Link>
-        </Button>
+        <Button href='/login' classe={'btn btn--login'} text='LOGIN'></Button>
       </div>
       <div className='sign-up'>
         <h1>
           Oû que vous soyez <br></br>Restez <strong>Freelance</strong>
         </h1>
-        <Button classe={'btn btn--signup'}>
-          <Link to='/SignUp'>INSCRIVEZ-VOUS</Link>
-        </Button>
+        <Button
+          href='/signUp'
+          classe={'btn btn--signup'}
+          text='INSCRIVEZ-VOUS'></Button>
       </div>
       <div className='explore'>
         <SocialMedia classe={'social-container-header'} />

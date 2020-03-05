@@ -52,8 +52,11 @@ export default class Layout extends Component {
         </article>
         <article className='flex ecart'>
           <div>
-            <Headline classe={'headline headline--lien'}>Comment ça marche ?</Headline>
-            <Dashboard title={'Tous vos outils de dev réuni sur une seule application'}>
+            <Headline classe={'headline headline--lien'}>
+              Comment ça marche ?
+            </Headline>
+            <Dashboard
+              title={'Tous vos outils de dev réuni sur une seule application'}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -77,7 +80,7 @@ export default class Layout extends Component {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.  
+              nisi ut aliquip ex ea commodo consequat.
             </Plan>
           </div>
         </article>
@@ -90,7 +93,7 @@ export default class Layout extends Component {
               inscrivez-vous et recevez prochainement un accès premium à
               l’application WeAreData
             </Headline>
-            <Button classe='btn btn--offerSignup'>JE M'INSCRIS</Button>
+            <Button classe='btn btn--offerSignup' text="JE M'INSCRIS"></Button>
           </Card>
         </article>
         <Footer />
