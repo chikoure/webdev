@@ -1,0 +1,39 @@
+.form-input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+  padding: 20px;
+}
+
+.form-label {
+  height: 22px;
+  color: #434242;
+  font-family: 'Montserrat';
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.95px;
+  line-height: 22px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.form--input {
+  border: 1px solid #34495e;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 55px;
+  width: 100%;
+  color: #434242;
+  font-family: 'Montserrat';
+  font-size: 16px;
+  line-height: 19px;
+  outline: none;
+  transition: all 0.3s;
+  &:focus {
+    border: 5px solid #34495e;
+    border-radius: 4px;
+    transition: all 0.3s;
+  }
+}

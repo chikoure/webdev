@@ -3,18 +3,28 @@
   width: 65%;
   text-align: center;
   box-shadow: 5px 13px 26px 6px rgba(88, 88, 88, 0.5);
-  padding: 120px 40px;
-  .headline--medium {
-    color: #1abc9c;
+
+  &--home {
+    padding: 120px 40px;
+    .headline--medium {
+      color: #1abc9c;
+    }
+    p {
+      padding-bottom: 30px;
+    }
+    .headline--small {
+      width: 80%;
+      font: 'Poppins bold';
+      font-size: 18px;
+      color: #434242;
+      margin: auto;
+    }
   }
-  p {
-    padding-bottom: 30px;
-  }
-  .headline--small {
-    width: 80%;
-    font: 'Poppins bold';
-    font-size: 18px;
-    color: #434242;
-    margin: auto;
+  &--form {
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    height: 1000px;
   }
 }

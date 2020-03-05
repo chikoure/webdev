@@ -85,7 +85,7 @@ export default class Layout extends Component {
           </div>
         </article>
         <article className='offers'>
-          <Card>
+          <Card className='card card--home'>
             <Headline classe='headline headline--medium'>
               OFFRE DE LANCEMENT
             </Headline>
