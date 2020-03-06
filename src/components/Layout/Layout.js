@@ -23,7 +23,6 @@ export default class Layout extends Component {
             <div className='webdev'>
               <p>Voici WeDev</p>
             </div>
-
             <div className='headline-container'>
               <Headline classe={'headline headline--big'}>
                 APPLICATION DE GESTION DE PROJET POUR LES DEV
@@ -93,7 +92,7 @@ export default class Layout extends Component {
               inscrivez-vous et recevez prochainement un accès premium à
               l’application WeAreData
             </Headline>
-            <Button classe='btn btn--offerSignup' text="JE M'INSCRIS" />
+            <Button classe='btn btn--green' text="JE M'INSCRIS" />
           </Card>
         </article>
         <Footer />

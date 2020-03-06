@@ -9,75 +9,75 @@ export default class SignUp extends Component {
     return (
       <div className='form-container'>
         <Card className='card card--form'>
-          <div className='ecart--bottom'>
-            <Headline classe={'headline headline--big'}>
-              INSCRIPTION
-            </Headline>
+          <Headline classe={'headline headline--big'}>
+            INSCRIPTION
+          </Headline>
+          <div className='form--signup'>
+            <Input
+              type='text'
+              required={true}
+              name='name'
+              id='name'
+              for='name'
+              label='Nom :'/>
+            <Input
+              type='text'
+              required={true}
+              name='name'
+              id='name'
+              for='name'
+              label='Prénom :'/>
+            <Input
+              type='text'
+              required={true}
+              name='name'
+              id='name'
+              for='name'
+              label='Mail :'></Input>
+            <Input
+              type='text'
+              required={true}
+              name='name'
+              id='name'
+              for='name'
+              label='Mot de passe :'/>
+            <Input
+              type='text'
+              required={true}
+              name='name'
+              id='name'
+              for='name'
+              label='Téléphone :'></Input>
+            <Input
+              type='text'
+              required={true}
+              name='name'
+              id='name'
+              for='name'
+              label='Societé :'/>
+            <Input
+              type='text'
+              required={true}
+              name='name'
+              id='name'
+              for='name'
+              label='Siret :'></Input>
+            <Input
+              type='text'
+              required={true}
+              name='name'
+              id='name'
+              for='name'
+              label='Profil :'/>
+            <Input
+              type='text'
+              required={true}
+              name='name'
+              id='name'
+              for='name'
+              label='Statut :'/>
           </div>
-          <Input
-            type='text'
-            required={true}
-            name='name'
-            id='name'
-            for='name'
-            label='Nom :'/>
-          <Input
-            type='text'
-            required={true}
-            name='name'
-            id='name'
-            for='name'
-            label='Prénom :'/>
-          <Input
-            type='text'
-            required={true}
-            name='name'
-            id='name'
-            for='name'
-            label='Mail :'></Input>
-          <Input
-            type='text'
-            required={true}
-            name='name'
-            id='name'
-            for='name'
-            label='Mot de passe :'/>
-          <Input
-            type='text'
-            required={true}
-            name='name'
-            id='name'
-            for='name'
-            label='Téléphone :'></Input>
-          <Input
-            type='text'
-            required={true}
-            name='name'
-            id='name'
-            for='name'
-            label='Societé :'/>
-          <Input
-            type='text'
-            required={true}
-            name='name'
-            id='name'
-            for='name'
-            label='Siret :'></Input>
-          <Input
-            type='text'
-            required={true}
-            name='name'
-            id='name'
-            for='name'
-            label='Profil :'/>
-          <Input
-            type='text'
-            required={true}
-            name='name'
-            id='name'
-            for='name'
-            label='Statut :'/>
-          <Button classe='btn btn--offerSignup' text="INSCRIPTION"/>
+          <Button classe='btn btn--green btn--green-signup' text="INSCRIPTION"/>
         </Card>
       </div>
     );

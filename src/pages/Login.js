@@ -9,26 +9,26 @@ export default class Login extends Component {
     return (
       <div className='form-container'>
         <Card className='card card--form'>
-          <div className='ecart--bottom'>
-            <Headline classe={'headline headline--big'}>
-              CONNEXION
-            </Headline>
+          <Headline classe={'headline headline--big'}>
+            CONNEXION
+          </Headline>
+          <div className='form--login'>
+            <Input
+              type='text'
+              required={true}
+              name='name'
+              id='name'
+              for='name'
+              label='Mail :'/>
+            <Input
+              type='text'
+              required={true}
+              name='name'
+              id='name'
+              for='name'
+              label='Mot de passe :'/>
           </div>
-          <Input
-            type='text'
-            required={true}
-            name='name'
-            id='name'
-            for='name'
-            label='Mail :'/>
-          <Input
-            type='text'
-            required={true}
-            name='name'
-            id='name'
-            for='name'
-            label='Mot de passe :'/>
-          <Button classe='btn btn--offerSignup' text="CONNEXION"/>
+          <Button classe='btn btn--green btn--green-login' text="CONNEXION"/>
         </Card>
       </div>
     )
