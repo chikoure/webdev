@@ -30,11 +30,14 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 5%;
+  margin-bottom: 20px;
 }
 
 .ecart {
-  margin: 5%;
+  margin: 50px;
+  &--bottom {
+    margin-bottom: 30px;
+  }
 }
 
 .headline-container {

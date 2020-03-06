@@ -93,7 +93,7 @@ export default class Layout extends Component {
               inscrivez-vous et recevez prochainement un accès premium à
               l’application WeAreData
             </Headline>
-            <Button classe='btn btn--offerSignup' text="JE M'INSCRIS"></Button>
+            <Button classe='btn btn--offerSignup' text="JE M'INSCRIS" />
           </Card>
         </article>
         <Footer />

@@ -8,22 +8,16 @@
   border-radius: 27.5px;
   display: inline-block;
   text-decoration: none;
-}
 
-.btn {
   &--login {
     padding: 12px 60px;
-
     color: #434242;
-
     border: 2px solid #34495e;
-
     background-color: #ecf0f1;
   }
   &--signup {
     background-color: #2091dc;
     color: #ffffff;
-
     padding: 12px 30px;
   }
   &--offerSignup {

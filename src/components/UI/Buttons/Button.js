@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Button = (props) => {
   return (
-    <Link to={props.href} text='login' className={props.classe}>
+    <Link to={props.href} className={props.classe} id={props.children}>
       {props.text}
     </Link>
   );
