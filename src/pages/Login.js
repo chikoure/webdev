@@ -28,7 +28,9 @@ export default class Login extends Component {
               for='name'
               label='Mot de passe :'/>
           </div>
-          <Button classe='btn btn--green btn--green-login' text="CONNEXION"/>
+          <div>
+            <Button classe='btn btn--large btn--large--green btn--large--green-login' text="CONNEXION"/>
+          </div>
         </Card>
       </div>
     )

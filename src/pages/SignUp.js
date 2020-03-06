@@ -77,7 +77,9 @@ export default class SignUp extends Component {
               for='name'
               label='Statut :'/>
           </div>
-          <Button classe='btn btn--green btn--green-signup' text="INSCRIPTION"/>
+          <div>
+            <Button classe='btn btn--large btn--large--green btn--large--green-signup' text="INSCRIPTION"/>
+          </div>
         </Card>
       </div>
     );
