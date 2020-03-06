@@ -12,6 +12,7 @@ const Input = (props) => {
         name={props.name}
         id={props.id}
         required={props.requiered}
+        onChange={props.onChange}
       />
     </div>
   );
