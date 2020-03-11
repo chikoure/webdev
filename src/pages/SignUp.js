@@ -114,14 +114,17 @@ class SignUp extends Component {
         elementType: 'select',
         elementConfig: {
           options: [
-            { value: 'sas', displayValue: 'SAS' },
-            { value: 'sasu', displayValue: 'SASU' },
-            { value: 'autoentrepreneur', displayValue: 'Autoentrepreneur' },
-            { value: 'eurl', displayValue: 'EURL' },
-            { value: 'sarl', displayValue: 'SARL' }
+            { value: '5e59458ffe271c127163d1eb', displayValue: 'SAS' },
+            { value: '5e59458ffe271c127163d1ec', displayValue: 'SASU' },
+            {
+              value: '5e59458ffe271c127163d1ed',
+              displayValue: 'Autoentrepreneur'
+            },
+            { value: '5e59458ffe271c127163d1ee', displayValue: 'EURL' },
+            { value: '5e59458ffe271c127163d1ef', displayValue: 'SARL' }
           ]
         },
-        value: 'sas',
+        value: '5e59458ffe271c127163d1eb',
         label: 'Statu de société :',
         validation: {},
         valid: true
@@ -130,13 +133,13 @@ class SignUp extends Component {
         elementType: 'select',
         elementConfig: {
           options: [
-            { value: 'back', displayValue: 'Back' },
-            { value: 'front', displayValue: 'Front' },
-            { value: 'dataanalyst', displayValue: 'Data Analyst' },
-            { value: 'qa', displayValue: 'QA' }
+            { value: '5e593f355e3d8010d53a53dd', displayValue: 'Back' },
+            { value: '5e593f355e3d8010d53a53de', displayValue: 'Front' },
+            { value: '5e593f355e3d8010d53a53df', displayValue: 'Data Analyst' },
+            { value: '5e593f355e3d8010d53a53e0', displayValue: 'QA' }
           ]
         },
-        value: 'back',
+        value: '5e593f355e3d8010d53a53dd',
         label: 'Profile :',
         validation: {},
         valid: true
@@ -215,6 +218,7 @@ class SignUp extends Component {
   };
 
   render() {
+    console.log(this.state.signUpForm.status.value);
     const formElementsArray = [];
     for (let key in this.state.signUpForm) {
       formElementsArray.push({
