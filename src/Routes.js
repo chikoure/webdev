@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import { Route, withRouter } from 'react-router-dom';
-import Layout from './components/Layout/Layout';
+import { Route, withRouter, Switch, Redirect } from 'react-router-dom';
+import LayoutHome from './components/Layout/LayoutHome';
+import { LayoutDashboard } from '../src/components/Layout/LayoutDashboard';
+import Login from '../src/pages/Login';
 import SignUp from './pages/SignUp';
-import Login from './pages/Login';
 
 export class Routes extends Component {
   render() {
     return (
       <div>
-        <Route exact path='/' component={Layout} />
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/signup' component={SignUp} />
+        <Switch>
+          <Route path='/' exact component={LayoutHome} />
+          <Route path='/dashboard' exact component={LayoutDashboard}></Route>
+        </Switch>
       </div>
     );
   }

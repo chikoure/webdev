@@ -4,6 +4,7 @@ import Card from '../components/UI/cards/Card';
 import Headline from '../components/UI/Headlines/Headline/HeadLine';
 import Button from '../components/UI/Buttons/Button';
 import * as actions from '../store/actions/index';
+import { Redirect } from 'react-router-dom';
 import axios from '../axios-instance';
 import { connect } from 'react-redux';
 
@@ -144,6 +145,11 @@ class Login extends Component {
       />
     ));
 
+    let authRedirect = null;
+    if (this.props.isAuthenticated) {
+      authRedirect = <Redirect to={this.props.authRedirectPath} />;
+    }
+
     return (
       <div className='form-container'>
         <Card className='card card--form'>
@@ -167,6 +173,7 @@ class Login extends Component {
               label='Mot de passe :'
               onChange={this.onChange}
             /> */}
+            {authRedirect}
             {form}
           </div>
           <div>
@@ -174,6 +181,11 @@ class Login extends Component {
               classe='btn btn--large btn--large--green btn--large--green-login'
               text='CONNEXION'
               onClick={this.login}
+            />
+            <Button
+              href='/signup'
+              classe='btn btn--large btn--signup'
+              text='INSCRIPTION'
             />
           </div>
         </Card>
@@ -183,7 +195,12 @@ class Login extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    RedirectPath: state.auth.authRedirectPath,
+    loading: state.auth.loading,
+    error: state.auth.error,
+    isAuthenticated: state.auth.token !== null
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {

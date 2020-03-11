@@ -11,13 +11,13 @@
   font-family: 'Montserrat';
 
   &--large {
-      border: 2px solid #3B3B3B;
-      border-radius: 3px;
-      color: #434242;
-      letter-spacing: 1px;
-      line-height: 19px;
-      vertical-align: middle;
-      padding: 12px 40px;
+    border: 2px solid #3b3b3b;
+    border-radius: 3px;
+    color: #434242;
+    letter-spacing: 1px;
+    line-height: 19px;
+    vertical-align: middle;
+    padding: 12px 40px;
     &--green {
       border: 2px solid #2ecc71;
       background-color: #2ecc71;
@@ -32,6 +32,7 @@
   }
   &--signup {
     background-color: #2091dc;
+    border: 2px solid #2091dc;
     color: #ffffff;
     padding: 12px 30px;
   }

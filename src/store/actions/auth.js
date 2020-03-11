@@ -44,3 +44,59 @@ export const auth = (email, password) => {
       });
   };
 };
+
+export const registerStart = () => {
+  return {
+    type: actionTypes.REGISTER_START
+  };
+};
+
+export const registerSuccess = () => {
+  return {
+    type: actionTypes.REGISTER_SUCCESS
+  };
+};
+
+export const registerFail = (error) => {
+  return {
+    type: actionTypes.REGISTER_FAIL,
+    error: error
+  };
+};
+
+export const register = (
+  firstName,
+  lastName,
+  email,
+  password,
+  phone,
+  society,
+  siret,
+  status,
+  profil
+) => {
+  return (dispatch) => {
+    dispatch(registerStart());
+    const authData = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password,
+      phone: phone,
+      society: society,
+      siret: siret,
+      status: status,
+      profil: profil
+    };
+    let url = 'http://localhost:3001/users';
+    axios
+      .post(url, authData)
+      .then((response) => {
+        console.log(response);
+        dispatch(registerSuccess());
+      })
+      .catch((err) => {
+        dispatch(registerFail(err.response.data.error));
+      });
+  };
+};
