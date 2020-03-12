@@ -23,6 +23,14 @@ export const authFail = (error) => {
   };
 };
 
+export const logout = () => {
+  localStorage.removeItem('token');
+  localStorage.removeItem('userId');
+  return {
+    type: actionTypes.AUTH_LOGOUT
+  };
+};
+
 export const auth = (email, password) => {
   return (dispatch) => {
     dispatch(authStart());
@@ -98,5 +106,18 @@ export const register = (
       .catch((err) => {
         dispatch(registerFail(err.response.data.error));
       });
+  };
+};
+
+export const authCheckState = () => {
+  //keep the user connected while token is valid
+  return (dispatch) => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      dispatch(logout());
+    } else {
+      const userId = localStorage.getItem('userId');
+      dispatch(authSuccess(token, userId));
+    }
   };
 };

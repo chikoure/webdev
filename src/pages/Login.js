@@ -150,29 +150,18 @@ class Login extends Component {
       authRedirect = <Redirect to={this.props.authRedirectPath} />;
     }
 
+    let errorMessage = null;
+
+    if (this.props.error) {
+      errorMessage = <p>{this.props.error.message}</p>;
+    }
+
     return (
       <div className='form-container'>
         <Card className='card card--form'>
           <Headline classe={'headline headline--big'}>CONNEXION</Headline>
           <div className='form--login'>
-            {/* <Input
-              type='text'
-              required={true}
-              name='email'
-              id='email'
-              for='email'
-              label='Mail :'
-              onChange={this.onChange}
-            />
-            <Input
-              type='text'
-              required={true}
-              name='password'
-              id='password'
-              for='password'
-              label='Mot de passe :'
-              onChange={this.onChange}
-            /> */}
+            {errorMessage}
             {authRedirect}
             {form}
           </div>
