@@ -13,7 +13,7 @@ const navigationItems = (props) => (
       </NavigationItem>
     ) : (
       <NavigationItem link='/logout' exact>
-        deconnecter
+        Se déconnecter
       </NavigationItem>
     )}
   </ul>
