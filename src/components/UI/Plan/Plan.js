@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.scss';
 import HeadLine from '../Headlines/Headline/HeadLine';
 import Gommette from '../Gommette/Gommette';
 import Dashboard from '../Dashboard/Dashboard';

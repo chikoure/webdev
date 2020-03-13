@@ -21,7 +21,9 @@ export default class Layout extends Component {
         <article className='presentation'>
           <div className='test'>
             <div className='webdev'>
-              <p>Voici WeDev</p>
+              <Headline classe={'headline headline--small'}>
+                Voici WeDev
+              </Headline>
             </div>
             <div className='headline-container'>
               <Headline classe={'headline headline--big'}>
@@ -35,7 +37,6 @@ export default class Layout extends Component {
               </Headline>
             </div>
           </div>
-
           <div className='icons'>
             <Icon iconLink={icon1}></Icon>
             <Icon iconLink={icon2}></Icon>

@@ -23,7 +23,7 @@ const Header = () => {
       </div>
       <div className='explore'>
         <SocialMedia classe={'social-container-header'} />
-        <Button classe={'btn btn--explore'}>EXPLORE </Button>
+        <Button classe={'btn btn--explore'} text={'EXPLORE '}></Button>
       </div>
     </div>
   );
