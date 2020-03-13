@@ -37,3 +37,8 @@
     transition: all 0.3s;
   }
 }
+
+.input-invalid {
+  border: 1px solid red;
+  background-color: #fda49a;
+}
