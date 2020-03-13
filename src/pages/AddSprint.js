@@ -119,7 +119,10 @@ class AddSprint extends Component {
     for (let inputIdentifier in updatedAddSprintForm) {
       formIsValid = updatedAddSprintForm[inputIdentifier].valid && formIsValid;
     }
-    this.setState({ addSprintForm: updatedAddSprintForm, formIsValid: formIsValid });
+    this.setState({
+        addSprintForm: updatedAddSprintForm, 
+        formIsValid: formIsValid
+    });
   };
 
   register = (e) => {
@@ -159,9 +162,7 @@ class AddSprint extends Component {
       <div className='form-container'>
         <Card className='card card--form'>
           <Headline classe={'headline headline--big'}>AJOUT DE SPRINT</Headline>
-          <div className='form--add-sprint'>
-            {form}
-          </div>
+          <div className='form--add-sprint'>{form}</div>
           <div>
             <Button
               classe='btn btn--large btn--large--green'
@@ -174,23 +175,5 @@ class AddSprint extends Component {
     );
   }
 }
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onAddSprint: (
-        title,
-        startDate,
-        dueDate,
-        status
-    ) =>
-      dispatch(
-        actions.addSprint(
-            title,
-            startDate,
-            dueDate,
-            status
-        )
-      )
-  };
-};
 
-export default connect(null, mapDispatchToProps)(AddSprint);
+export default AddSprint;

@@ -5,6 +5,7 @@ import { LayoutDashboard } from '../src/components/Layout/LayoutDashboard';
 import Login from '../src/pages/Login';
 import SignUp from './pages/SignUp';
 import AddProject from './pages/AddProject';
+import AddSprint from './pages/AddSprint';
 
 export class Routes extends Component {
   render() {
@@ -22,6 +23,10 @@ export class Routes extends Component {
                 path='/dashboard/addProject'
                 exact
                 component={AddProject}></Route>
+              <Route
+                path='/dashboard/addSprint'
+                exact
+                component={AddSprint}></Route>
             </Switch>
           </LayoutDashboard>
         </Route>

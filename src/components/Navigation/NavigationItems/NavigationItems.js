@@ -12,6 +12,11 @@ const navigationItems = (props) => (
         Ajouter un projet
       </NavigationItem>
     )}
+    {!props.isAuthenticated ? null : (
+      <NavigationItem link='/dashboard/addSprint' exact>
+        Ajouter un sprint
+      </NavigationItem>
+    )}
     {!props.isAuthenticated ? (
       <NavigationItem link='/dashboard/login' exact>
         connection
