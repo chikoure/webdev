@@ -14,19 +14,20 @@ class App extends Component {
     this.props.onAutoSignup();
   }
   render() {
-    let routes = (
-      <Switch>
-        <Route path='/login' exact component={Login} />
-        <Route path='/home' exact component={LayoutHome} />
-        <Route path='/logout' component={Logout} />
-        <Route path='/signup' exact component={SignUp} />
-      </Switch>
-    );
+    // let routes = (
+    //   <Switch>
+    //     <Route path='/login' exact component={Login} />
+    //     <Route path='/home' exact component={LayoutHome} />
+    //     <Route path='/logout' component={Logout} />
+    //     <Route path='/signup' exact component={SignUp} />
+    //   </Switch>
+    // );
 
     return (
-      <div>
-        <LayoutDashboard>{routes}</LayoutDashboard>
-      </div>
+      // <div>
+      //   <LayoutDashboard>{routes}</LayoutDashboard>
+      // </div>
+      <Routes />
     );
   }
 }

@@ -4,11 +4,11 @@ import NavigationItem from './NavigationItem/NavigationItem';
 
 const navigationItems = (props) => (
   <ul className='NavigationItems'>
-    <NavigationItem link='/home' exact>
+    <NavigationItem link='/' exact>
       Accueil
     </NavigationItem>
     {!props.isAuthenticated ? (
-      <NavigationItem link='/login' exact>
+      <NavigationItem link='/dashboard/login' exact>
         connection
       </NavigationItem>
     ) : (
