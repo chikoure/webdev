@@ -11,34 +11,57 @@
   font-family: 'Montserrat';
 
   &--large {
-      border: 2px solid #3B3B3B;
+      border: 2px solid $color-black;
       border-radius: 3px;
       color: #434242;
       letter-spacing: 1px;
-      line-height: 19px;
       vertical-align: middle;
       padding: 12px 40px;
     &--green {
-      border: 2px solid #2ecc71;
-      background-color: #2ecc71;
-      color: #ffffff;
+      border: 2px solid $color-emeraud;
+      background-color: $color-emeraud;
+      color: $color-white;
     }
+    &--green-sea {
+      border: 2px solid $color-green-sea;
+      color: $color-green-sea;
+    }
+    &--light-grey {
+      border: 2px solid $color-light-grey;
+      background-color: $color-light-grey;
+      color: $color-black;
+    }
+  }
+  &--rounded {
+    border: 2px solid $color-black;
+    color: $color-black;
+    border-radius: 27.5px;
+    letter-spacing: 1px;
+    vertical-align: middle;
+    padding: 12px 40px;
+    &--green {
+      border: 2px solid $color-emeraud;
+      color: $color-emeraud;
+    }
+    &--light-grey {
+      border: 2px solid $color-light-grey;
+      background-color: $color-light-grey;}
   }
   &--login {
     padding: 12px 60px;
-    color: #434242;
-    border: 2px solid #34495e;
-    background-color: #ecf0f1;
+    color: $color-black;
+    border: 2px solid $color-dark-blue;
+    background-color: $color-light-grey;
   }
   &--signup {
-    background-color: #2091dc;
-    color: #ffffff;
+    background-color: $color-blue;
+    color: $color-white;
     padding: 12px 30px;
   }
   &--explore {
     background: none;
     padding: 12px 40px;
-    border: 2px solid #ffffff;
-    color: #ffffff;
+    border: 2px solid $color-white;
+    color: $color-white;
   }
 }

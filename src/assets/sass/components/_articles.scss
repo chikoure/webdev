@@ -11,12 +11,12 @@
   padding: 70px 219px;
   .webdev {
     width: 30%;
-    border: 5px solid white;
+    border: 5px solid $color-white;
     padding: 10px 10px;
     text-align: center;
     margin-bottom: 20px;
     .webdev p {
-      color: #ffffff;
+      color: $color-white;
       font-family: 'Montserrat';
       font-size: 25px;
       font-weight: bolder;
