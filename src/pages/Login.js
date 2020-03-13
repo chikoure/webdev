@@ -16,16 +16,16 @@ export default class Login extends Component {
             <Input
               type='text'
               required={true}
-              name='name'
-              id='name'
-              for='name'
-              label='Mail :'/>
+              name='email'
+              id='email'
+              for='email'
+              label='Email :'/>
             <Input
               type='text'
               required={true}
-              name='name'
-              id='name'
-              for='name'
+              name='password'
+              id='password'
+              for='password'
               label='Mot de passe :'/>
           </div>
           <div>

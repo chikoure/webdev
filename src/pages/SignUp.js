@@ -16,69 +16,69 @@ export default class SignUp extends Component {
             <Input
               type='text'
               required={true}
-              name='name'
-              id='name'
-              for='name'
+              name='firstName'
+              id='firstName'
+              for='firstName'
               label='Nom :'/>
             <Input
               type='text'
               required={true}
-              name='name'
-              id='name'
-              for='name'
+              name='lastName'
+              id='lastName'
+              for='lastName'
               label='Prénom :'/>
             <Input
               type='text'
               required={true}
-              name='name'
-              id='name'
-              for='name'
-              label='Mail :'></Input>
+              name='email'
+              id='email'
+              for='email'
+              label='Email :'></Input>
             <Input
               type='text'
               required={true}
-              name='name'
-              id='name'
-              for='name'
+              name='password'
+              id='password'
+              for='password'
               label='Mot de passe :'/>
             <Input
               type='text'
               required={true}
-              name='name'
-              id='name'
-              for='name'
+              name='phone'
+              id='phone'
+              for='phone'
               label='Téléphone :'></Input>
             <Input
               type='text'
               required={true}
-              name='name'
-              id='name'
-              for='name'
+              name='society'
+              id='society'
+              for='society'
               label='Societé :'/>
             <Input
               type='text'
               required={true}
-              name='name'
-              id='name'
-              for='name'
+              name='siret'
+              id='siret'
+              for='siret'
               label='Siret :'></Input>
             <Input
               type='text'
               required={true}
-              name='name'
-              id='name'
-              for='name'
+              name='profil'
+              id='profil'
+              for='profil'
               label='Profil :'/>
             <Input
               type='text'
               required={true}
-              name='name'
-              id='name'
-              for='name'
+              name='status'
+              id='status'
+              for='status'
               label='Statut :'/>
           </div>
           <div>
-            <Button classe='btn btn--large btn--large--green btn--large--green-signup' text="INSCRIPTION"/>
+            <Button classe='btn btn--large btn--large--green' text="INSCRIPTION"/>
           </div>
         </Card>
       </div>
