@@ -147,7 +147,7 @@ class AddProject extends Component {
         },
         valid: false,
         touched: false
-      },
+      }
     },
     formIsValid: false
   };
@@ -202,7 +202,10 @@ class AddProject extends Component {
     for (let inputIdentifier in updatedAddProjectForm) {
       formIsValid = updatedAddProjectForm[inputIdentifier].valid && formIsValid;
     }
-    this.setState({ addProjectForm: updatedAddProjectForm, formIsValid: formIsValid });
+    this.setState({
+      addProjectForm: updatedAddProjectForm,
+      formIsValid: formIsValid
+    });
   };
 
   register = (e) => {
@@ -249,9 +252,7 @@ class AddProject extends Component {
       <div className='form-container'>
         <Card className='card card--form'>
           <Headline classe={'headline headline--big'}>AJOUT DE PROJET</Headline>
-          <div className='form--add-project'>
-            {form}
-          </div>
+          <div className='form--add-project'>{form}</div>
           <div>
             <Button
               classe='btn btn--large btn--large--green'
@@ -264,33 +265,5 @@ class AddProject extends Component {
     );
   }
 }
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onAddProject: (
-        title,
-        estimateAmount,
-        startDate,
-        dueDate,
-        status,
-        stacks,
-        hourlyCostDay,
-        gitHubRepoName,
-        gitHubRepoOwner
-    ) =>
-      dispatch(
-        actions.addProject(
-            title,
-            estimateAmount,
-            startDate,
-            dueDate,
-            status,
-            stacks,
-            hourlyCostDay,
-            gitHubRepoName,
-            gitHubRepoOwner
-        )
-      )
-  };
-};
 
-export default connect(null, mapDispatchToProps)(AddProject);
+export default AddProject;

@@ -4,6 +4,7 @@ import LayoutHome from './components/Layout/LayoutHome';
 import { LayoutDashboard } from '../src/components/Layout/LayoutDashboard';
 import Login from '../src/pages/Login';
 import SignUp from './pages/SignUp';
+import AddProject from './pages/AddProject';
 
 export class Routes extends Component {
   render() {
@@ -17,6 +18,10 @@ export class Routes extends Component {
                 exact
                 component={SignUp}></Route>
               <Route path='/dashboard/login' exact component={Login}></Route>
+              <Route
+                path='/dashboard/addProject'
+                exact
+                component={AddProject}></Route>
             </Switch>
           </LayoutDashboard>
         </Route>
