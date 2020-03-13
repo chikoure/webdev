@@ -87,7 +87,7 @@ class AddProject extends Component {
             { value: '5e5945c8ddb7bc127dfe8268', displayValue: 'Réalisé' }
           ]
         },
-        value: '5e59458ffe271c127163d1eb',
+        value: '5e5945c8ddb7bc127dfe8267',
         label: 'Statut :',
         validation: {},
         valid: true

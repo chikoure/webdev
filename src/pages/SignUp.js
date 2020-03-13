@@ -125,7 +125,7 @@ class SignUp extends Component {
           ]
         },
         value: '5e59458ffe271c127163d1eb',
-        label: 'Statu de société :',
+        label: 'Statut de société :',
         validation: {},
         valid: true
       },
