@@ -216,7 +216,9 @@ class AddProject extends Component {
       this.state.addProjectForm.dueDate.value,
       this.state.addProjectForm.status.value,
       this.state.addProjectForm.stacks.value,
-      this.state.addProjectForm.hourlyCostDay.value
+      this.state.addProjectForm.hourlyCostDay.value,
+      this.state.addProjectForm.gitHubRepoName.value,
+      this.state.addProjectForm.gitHubRepoOwner.value
     );
   };
 
@@ -271,7 +273,9 @@ const mapDispatchToProps = (dispatch) => {
         dueDate,
         status,
         stacks,
-        hourlyCostDay
+        hourlyCostDay,
+        gitHubRepoName,
+        gitHubRepoOwner
     ) =>
       dispatch(
         actions.addProject(
@@ -281,7 +285,9 @@ const mapDispatchToProps = (dispatch) => {
             dueDate,
             status,
             stacks,
-            hourlyCostDay
+            hourlyCostDay,
+            gitHubRepoName,
+            gitHubRepoOwner
         )
       )
   };
