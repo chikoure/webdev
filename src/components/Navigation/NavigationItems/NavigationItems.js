@@ -9,11 +9,11 @@ const navigationItems = (props) => (
     </NavigationItem>
     {!props.isAuthenticated ? (
       <NavigationItem link='/login' exact>
-        connection
+        Connexion
       </NavigationItem>
     ) : (
       <NavigationItem link='/logout' exact>
-        deconnecter
+        Se déconnecter
       </NavigationItem>
     )}
   </ul>
