@@ -99,23 +99,9 @@ class Login extends Component {
     this.setState({ controls: updatedControls });
   };
 
-  // onChange = (e) => this.setState({ [e.target.name]: e.target.value });
   login = (e) => {
     e.preventDefault();
-    // axios
-    //   .post('/users/login', {
-    //     email: this.state.email,
-    //     password: this.state.password
-    //   })
-    //   .then((res) => {
-    //     console.log('hello', res);
-    //     if (res.status === 200) {
-    //       this.props.history.push('/logintest.js');
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     console.log('hnddn');
-    //   });
+
     this.props.onAuth(
       this.state.controls.email.value,
       this.state.controls.password.value
@@ -144,10 +130,10 @@ class Login extends Component {
         changed={(event) => this.inputChangedHandler(event, formElement.id)}
       />
     ));
-
+    console.log('here', this.props.RedirectPath);
     let authRedirect = null;
     if (this.props.isAuthenticated) {
-      authRedirect = <Redirect to={this.props.authRedirectPath} />;
+      authRedirect = <Redirect to={this.props.RedirectPath} />;
     }
 
     let errorMessage = null;

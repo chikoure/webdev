@@ -11,7 +11,7 @@ const Header = () => {
       <div className='login'>
         <Logo logoLink={logoHeader} />
         <Button
-          href='/dashboard'
+          href='/dashboard/login'
           classe={'btn btn--login'}
           text='LOGIN'></Button>
       </div>
@@ -20,7 +20,7 @@ const Header = () => {
           Oû que vous soyez <br></br>Restez <strong>Freelance</strong>
         </h1>
         <Button
-          href='/signUp'
+          href='/dashboard/register'
           classe={'btn btn--signup'}
           text='INSCRIVEZ-VOUS'></Button>
       </div>

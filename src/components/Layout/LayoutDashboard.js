@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import Aux from '../../hoc/Hoc';
 import { connect } from 'react-redux';
-import { Route, withRouter } from 'react-router-dom';
 import ToolBar from '../Navigation/ToolBar/ToolBar';
-import Login from '../../pages/Login';
 
 export class LayoutDashboard extends Component {
   render() {
@@ -16,10 +14,8 @@ export class LayoutDashboard extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    isAuthenticated: state.auth.token !== null
-  };
-};
+const mapStateToProps = (state) => ({
+  userID: state.auth.userId
+});
 
-export default connect(mapStateToProps, null)(LayoutDashboard);
+export default connect(mapStateToProps)(LayoutDashboard);

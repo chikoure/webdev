@@ -6,7 +6,7 @@ const initialState = {
   userId: null,
   error: null,
   loading: false,
-  authRedirectPath: '/'
+  authRedirectPath: '/dashboard'
 };
 
 const authStart = (state, action) => {
@@ -23,7 +23,7 @@ const authSuccess = (state, action) => {
     userId: action.userId,
     error: null,
     loading: false,
-    authRedirectPath: '/'
+    authRedirectPath: '/dashboard'
   });
 };
 

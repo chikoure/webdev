@@ -4,14 +4,14 @@ import NavigationItem from './NavigationItem/NavigationItem';
 
 const navigationItems = (props) => (
   <ul className='NavigationItems'>
-    <NavigationItem link='/' exact>
+    <NavigationItem link='/dashboard/home' exact>
       Accueil
     </NavigationItem>
-    {!props.isAuthenticated ? null : (
+    {props.isAuthenticated ? (
       <NavigationItem link='/dashboard/addProject' exact>
         Ajouter un projet
       </NavigationItem>
-    )}
+    ) : null}
     {!props.isAuthenticated ? null : (
       <NavigationItem link='/dashboard/addSprint' exact>
         Ajouter un sprint
@@ -22,7 +22,7 @@ const navigationItems = (props) => (
         connection
       </NavigationItem>
     ) : (
-      <NavigationItem link='/logout' exact>
+      <NavigationItem link='/dashboard/logout' exact>
         Se déconnecter
       </NavigationItem>
     )}

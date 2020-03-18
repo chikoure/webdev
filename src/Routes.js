@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import { Route, withRouter, Switch, Redirect, Router } from 'react-router-dom';
-import LayoutHome from './components/Layout/LayoutHome';
+import LayoutHome from '../src/components/Layout/LayoutHome';
 import { LayoutDashboard } from '../src/components/Layout/LayoutDashboard';
-import Login from '../src/pages/Login';
+import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import { connect } from 'react-redux';
+import * as actions from '../src/store/actions/index';
 import AddProject from './pages/AddProject';
 import AddSprint from './pages/AddSprint';
+import Logout from './pages/Logout';
 
 export class Routes extends Component {
+  componentDidMount() {
+    this.props.onAutoSignup();
+  }
   render() {
     return (
       <Router history={this.props.history}>
         <Route path='/dashboard'>
-          <LayoutDashboard>
+          <LayoutDashboard isAuthenticated={this.props.Authenticated}>
             <Switch>
               <Route
                 path='/dashboard/register'
@@ -27,6 +33,7 @@ export class Routes extends Component {
                 path='/dashboard/addSprint'
                 exact
                 component={AddSprint}></Route>
+              <Route path='/dashboard/logout' exact component={Logout}></Route>
             </Switch>
           </LayoutDashboard>
         </Route>
@@ -41,4 +48,16 @@ export class Routes extends Component {
   }
 }
 
-export default withRouter(Routes);
+const mapStateToProps = (state) => {
+  return {
+    Authenticated: state.auth.token !== null
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAutoSignup: () => dispatch(actions.authCheckState())
+  };
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Routes));
