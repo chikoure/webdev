@@ -3,6 +3,7 @@ import Input from '../components/UI/Inputs/Input';
 import Card from '../components/UI/cards/Card';
 import Headline from '../components/UI/Headlines/Headline/HeadLine';
 import Button from '../components/UI/Buttons/Button';
+import Toast from '../components/UI/Toasts/Toast';
 import * as actions from '../store/actions/index';
 import { Redirect } from 'react-router-dom';
 import axios from '../axios-instance';
@@ -139,17 +140,16 @@ class Login extends Component {
     let errorMessage = null;
 
     if (this.props.error) {
-      errorMessage = <p>{this.props.error}</p>;
-      console.log(this.props.error);
+      errorMessage = <Toast text={this.props.error} classe='toast toast--red' />;
     }
 
     return (
       <div className='form-container'>
         {authRedirect}
-        {errorMessage}
         <Card className='card card--form'>
           <Headline classe={'headline headline--big'}>CONNEXION</Headline>
           <div className='form--login'>{form}</div>
+          {errorMessage}
           <div>
             <Button
               classe='btn btn--large btn--large--green btn--large--green-login'
