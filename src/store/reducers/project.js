@@ -23,10 +23,6 @@ const fetchProjectsFail = (state, action) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    // case actionTypes.PURCHASE_INIT: return purchaseInit( state, action );
-    // case actionTypes.PURCHASE_BURGER_START: return purchaseBurgerStart( state, action );
-    // case actionTypes.PURCHASE_BURGER_SUCCESS: return purchaseBurgerSuccess( state, action )
-    // case actionTypes.PURCHASE_BURGER_FAIL: return purchaseBurgerFail( state, action );
     case actionTypes.FETCH_PROJECTS_START:
       return fetchProjectsStart(state, action);
     case actionTypes.FETCH_PROJECTS_SUCCESS:

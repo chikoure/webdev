@@ -139,18 +139,17 @@ class Login extends Component {
     let errorMessage = null;
 
     if (this.props.error) {
-      errorMessage = <p>{this.props.error.message}</p>;
+      errorMessage = <p>{this.props.error}</p>;
+      console.log(this.props.error);
     }
 
     return (
       <div className='form-container'>
+        {authRedirect}
+        {errorMessage}
         <Card className='card card--form'>
           <Headline classe={'headline headline--big'}>CONNEXION</Headline>
-          <div className='form--login'>
-            {errorMessage}
-            {authRedirect}
-            {form}
-          </div>
+          <div className='form--login'>{form}</div>
           <div>
             <Button
               classe='btn btn--large btn--large--green btn--large--green-login'
