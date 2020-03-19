@@ -5,12 +5,16 @@ import { connect } from 'react-redux';
 class MyProjects extends Component {
   componentDidMount() {
     this.props.onFetchProjects(this.props.userToken);
-    if (this.props.projects[0]) {
-      this.props.onFetchSprints(this.props.projects[0]._id);
-    }
   }
 
   render() {
+    if (this.props.projects[0]) {
+      console.log(this.props.projects[0]._id);
+      this.props.onFetchSprints(
+        this.props.userToken,
+        this.props.projects[0]._id
+      );
+    }
     let projects = this.props.projects.map((elem) => {
       return <p>{elem.title}</p>;
     });
@@ -29,7 +33,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onFetchProjects: (token) => dispatch(actions.fetchProjects(token)),
-    onFetchSprints: (projectId) => dispatch(actions.fetchSprints(projectId))
+    onFetchSprints: (token, projectId) =>
+      dispatch(actions.fetchSprints(token, projectId))
   };
 };
 

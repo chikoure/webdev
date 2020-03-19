@@ -24,14 +24,12 @@ export const fetchSprintsFail = (error) => {
 export const fetchSprints = (token, projectId) => {
   return (dispatch) => {
     dispatch(fetchSprintsStart());
-    const param = {
-      projectId: projectId
-    };
+
     const config = {
       headers: { Authorization: `Bearer ${token}` }
     };
     axios
-      .get('localhost:3001/sprints/:projectId/all', param, config)
+      .get(`http://localhost:3001/sprints/${projectId}/all`, config)
       .then((res) => {
         console.log(res);
         const fetchedSprints = [];

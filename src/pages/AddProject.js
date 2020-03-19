@@ -226,7 +226,6 @@ class AddProject extends Component {
   };
 
   render() {
-    console.log(this.state.addProjectForm.status.value);
     const formElementsArray = [];
     for (let key in this.state.addProjectForm) {
       formElementsArray.push({

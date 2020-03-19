@@ -30,7 +30,6 @@ export const fetchProjects = (token) => {
     axios
       .get('http://localhost:3001/projects/all', config)
       .then((res) => {
-        console.log(res);
         const fetchedProjects = [];
         // for (let key in res.data) {
         //   fetchedProjects.push({
