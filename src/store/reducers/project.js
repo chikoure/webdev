@@ -3,6 +3,7 @@ import { updateObject } from '../utility';
 
 const initialState = {
   projects: [],
+  projectId: null,
   loading: false
 };
 
@@ -12,6 +13,7 @@ const fetchProjectsStart = (state, action) => {
 
 const fetchProjectsSuccess = (state, action) => {
   return updateObject(state, {
+    projectId: action.projectd,
     projects: action.projects,
     loading: false
   });

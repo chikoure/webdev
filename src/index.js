@@ -9,12 +9,14 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import authReducer from '../src/store/reducers/auth';
 import projectReducer from '../src/store/reducers/project';
+import sprintReducer from '../src/store/reducers/sprint';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  project: projectReducer
+  project: projectReducer,
+  sprint: sprintReducer
 });
 
 const store = createStore(
