@@ -24,7 +24,7 @@ const navigationItems = (props) => (
     )}
     {!props.isAuthenticated ? (
       <NavigationItem link='/dashboard/login' exact>
-        connection
+        connexion
       </NavigationItem>
     ) : (
       <NavigationItem link='/dashboard/logout' exact>
