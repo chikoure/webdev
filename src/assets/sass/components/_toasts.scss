@@ -1,0 +1,31 @@
+.toast {
+	border-radius: 4px;
+	padding: 8px 60px;
+	margin: 3px;
+	display: flex;
+	justify-content: space-between;
+	font-family: "Montserrat";
+	font-size: 17px;
+	align-items: center;
+	
+	&--light-grey {
+		background-color: $color-light-grey;
+		color: $color-black;
+	}
+	&--emeraud {
+		background-color: $color-emeraud;
+		color: $color-white;
+	}
+	&--dark-grey {
+		background-color: $color-dark-grey;
+		color: $color-white;
+	}
+	&--red {
+		background-color: $color-red;
+		color: $color-white;
+	}
+}
+
+.action {
+	cursor: pointer;
+}
