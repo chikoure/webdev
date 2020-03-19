@@ -99,7 +99,7 @@ class SignUp extends Component {
       siret: {
         elementType: 'input',
         elementConfig: {
-          type: 'text',
+          type: 'number',
           placeholder: 'Siret'
         },
         value: '',

@@ -158,7 +158,7 @@ class Login extends Component {
               onClick={this.login}
             />
             <Button
-              href='/signup'
+              href='/dashboard/register'
               classe='btn btn--large btn--signup'
               text='INSCRIPTION'
             />
