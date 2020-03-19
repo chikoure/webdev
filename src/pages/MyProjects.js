@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as actions from '../store/actions/index';
 import { connect } from 'react-redux';
+import Project from '../components/UI/Project/Project';
 
 class MyProjects extends Component {
   componentDidMount() {
@@ -8,6 +9,7 @@ class MyProjects extends Component {
   }
 
   render() {
+    console.log(this.props.projects);
     if (this.props.projects[0]) {
       console.log(this.props.projects[0]._id);
       this.props.onFetchSprints(
@@ -16,7 +18,21 @@ class MyProjects extends Component {
       );
     }
     let projects = this.props.projects.map((elem) => {
-      return <p>{elem.title}</p>;
+      return <div>
+        <Project
+          title={elem.title}
+          estimateAmount={elem.estimateAmount}
+          completionDeadline={elem.completionDeadline}
+          startDate={elem.startDate}
+          dueDate={elem.dueDate}
+          statusName={elem.status.name}
+          stacks={elem.stacks}
+          hourlyCostDay={elem.hourlyCostDay}
+          gitName={elem.githubRepo.name}
+          gitOwner={elem.githubRepo.owner}
+          sprints={elem.sprints}
+        />
+      </div>;
     });
 
     return <div>{projects}</div>;
