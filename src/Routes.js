@@ -9,6 +9,7 @@ import * as actions from '../src/store/actions/index';
 import AddProject from './pages/AddProject';
 import AddSprint from './pages/AddSprint';
 import Logout from './pages/Logout';
+import MyProjects from './pages/MyProjects';
 
 export class Routes extends Component {
   componentDidMount() {
@@ -25,6 +26,10 @@ export class Routes extends Component {
                 exact
                 component={SignUp}></Route>
               <Route path='/dashboard/login' exact component={Login}></Route>
+              <Route
+                path='/dashboard/myProjects'
+                exact
+                component={MyProjects}></Route>
               <Route
                 path='/dashboard/addProject'
                 exact
