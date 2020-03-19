@@ -5,15 +5,16 @@ import { connect } from 'react-redux';
 class MyProjects extends Component {
   componentDidMount() {
     this.props.onFetchProjects(this.props.userToken);
-    this.props.onFetchSprints(this.props.projectId);
+    if (this.props.projects[0]) {
+      this.props.onFetchSprints(this.props.projects[0]._id);
+    }
   }
 
   render() {
-    console.log(this.props.projects._id);
     let projects = this.props.projects.map((elem) => {
       return <p>{elem.title}</p>;
     });
-    console.log(this.props.projects);
+
     return <div>{projects}</div>;
   }
 }
