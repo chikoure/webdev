@@ -39,7 +39,7 @@ export const fetchSprints = (token, projectId) => {
         //     id: key
         //   });
         // }
-        dispatch(fetchSprintsSuccess(res.data));
+        dispatch(fetchSprintsSuccess(res.data.sprints));
       })
       .catch((err) => {
         dispatch(fetchSprintsFail(err));

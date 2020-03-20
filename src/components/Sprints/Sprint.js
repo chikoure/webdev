@@ -14,7 +14,9 @@ class Sprint extends Component {
     }
     const sprints = this.props.sprints;
     const sprin = sprints.map((e) => {
-      return <p>{e.tasks}</p>;
+      return e.tasks.map((task) => {
+        return <p>{task.title}</p>;
+      });
     });
     return <div>{sprin}</div>;
   }
