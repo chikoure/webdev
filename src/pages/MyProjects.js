@@ -10,14 +10,14 @@ class MyProjects extends Component {
 
   render() {
     if (this.props.projects[0]) {
-      console.log(this.props.projects[0]._id);
       this.props.onFetchSprints(
         this.props.userToken,
         this.props.projects[0]._id
       );
     }
     let projects = this.props.projects.map((elem) => {
-      return <Project
+      return (
+        <Project
           title={elem.title}
           estimateAmount={elem.estimateAmount}
           completionDeadline={elem.completionDeadline}
@@ -29,7 +29,8 @@ class MyProjects extends Component {
           gitName={elem.githubRepo.name}
           gitOwner={elem.githubRepo.owner}
           sprints={elem.sprints}
-        />;
+        />
+      );
     });
 
     return <div>{projects}</div>;

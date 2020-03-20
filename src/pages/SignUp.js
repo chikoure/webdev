@@ -244,78 +244,7 @@ class SignUp extends Component {
       <div className='form-container'>
         <Card className='card card--form'>
           <Headline classe={'headline headline--big'}>INSCRIPTION</Headline>
-          <div className='form--signup'>
-            {/* <Input
-              type='text'
-              required={true}
-              name='name'
-              id='name'
-              for='name'
-              label='Nom :'
-            />
-            <Input
-              type='text'
-              required={true}
-              name='name'
-              id='name'
-              for='name'
-              label='Prénom :'
-            />
-            <Input
-              type='text'
-              required={true}
-              name='email'
-              id='email'
-              for='email'
-              label='Email :'></Input>
-            <Input
-              type='text'
-              required={true}
-              name='name'
-              id='name'
-              for='name'
-              label='Mot de passe :'
-            />
-            <Input
-              type='text'
-              required={true}
-              name='phone'
-              id='phone'
-              for='phone'
-              label='Téléphone :'></Input>
-            <Input
-              type='text'
-              required={true}
-              name='name'
-              id='name'
-              for='name'
-              label='Societé :'
-            />
-            <Input
-              type='text'
-              required={true}
-              name='siret'
-              id='siret'
-              for='siret'
-              label='Siret :'></Input>
-            <Input
-              type='text'
-              required={true}
-              name='name'
-              id='name'
-              for='name'
-              label='Profil :'
-            />
-            <Input
-              type='text'
-              required={true}
-              name='name'
-              id='name'
-              for='name'
-              label='Statut :'
-            /> */}
-            {form}
-          </div>
+          <div className='form--signup'>{form}</div>
           <div>
             <Button
               classe='btn btn--large btn--large--green btn--large--green-signup'

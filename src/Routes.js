@@ -10,11 +10,16 @@ import AddProject from './pages/AddProject';
 import AddSprint from './pages/AddSprint';
 import Logout from './pages/Logout';
 import MyProjects from './pages/MyProjects';
+import Sprint from '../src/components/Sprints/Sprint';
 
 export class Routes extends Component {
   componentDidMount() {
     this.props.onAutoSignup();
   }
+  sprintSelectedHandler = (id) => {
+    // this.props.history.push({pathname: '/posts/' + id});
+    this.props.history.push('/dashboard/myprojects' + id);
+  };
   render() {
     return (
       <Router history={this.props.history}>
@@ -39,6 +44,11 @@ export class Routes extends Component {
                 exact
                 component={AddSprint}></Route>
               <Route path='/dashboard/logout' exact component={Logout}></Route>
+              <Route
+                path='/dashboard/myProjects/:id'
+                exact
+                component={Sprint}
+              />
             </Switch>
           </LayoutDashboard>
         </Route>
