@@ -5,18 +5,8 @@ import Card from '../cards/Card';
 import { withRouter } from 'react-router-dom';
 
 const Project = (props) => {
-  const sprintSelectedHandler = (id) => {
-    props.history.push('/dashboard/myProjects/' + id);
-  };
   let sprints = props.sprints.map((elem) => {
-    return (
-      <Headline
-        clicked={() => {
-          sprintSelectedHandler(elem._id);
-        }}>
-        {elem.title}
-      </Headline>
-    );
+    return <Headline>{elem.title}</Headline>;
   });
   return (
     <Hoc>

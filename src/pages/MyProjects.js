@@ -7,14 +7,16 @@ class MyProjects extends Component {
   componentDidMount() {
     this.props.onFetchProjects(this.props.userToken);
   }
-
+  sprintSelectedHandler = (id) => {
+    this.props.history.push('/dashboard/myProjects/' + id);
+  };
   render() {
-    if (this.props.projects[0]) {
-      this.props.onFetchSprints(
-        this.props.userToken,
-        this.props.projects[0]._id
-      );
-    }
+    // if (this.props.projects[0]) {
+    //   this.props.onFetchSprints(
+    //     this.props.userToken,
+    //     this.props.projects[0]._id
+    //   );
+    // }
     let projects = this.props.projects.map((elem) => {
       return (
         <Project
@@ -29,6 +31,9 @@ class MyProjects extends Component {
           gitName={elem.githubRepo.name}
           gitOwner={elem.githubRepo.owner}
           sprints={elem.sprints}
+          clicked={() => {
+            this.sprintSelectedHandler(elem._id);
+          }}
         />
       );
     });
@@ -46,9 +51,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onFetchProjects: (token) => dispatch(actions.fetchProjects(token)),
-    onFetchSprints: (token, projectId) =>
-      dispatch(actions.fetchSprints(token, projectId))
+    onFetchProjects: (token) => dispatch(actions.fetchProjects(token))
+    // onFetchSprints: (token, projectId) =>
+    //   dispatch(actions.fetchSprints(token, projectId))
   };
 };
 
