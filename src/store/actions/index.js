@@ -1,3 +1,3 @@
 export { auth, register, logout, authCheckState } from './auth';
-export { fetchProjects } from './project';
+export { fetchProjects, addProject } from './project';
 export { fetchSprints } from './sprint';

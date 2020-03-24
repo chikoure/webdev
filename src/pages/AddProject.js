@@ -120,6 +120,26 @@ class AddProject extends Component {
         valid: false,
         touched: false
       },
+      client: {
+        elementType: 'select',
+        elementConfig: {
+          options: [
+            {
+              value: '5e59427fe14f9a11ee9339f9',
+              displayValue: 'Cool society name'
+            },
+            { value: '5e594307e14f9a11ee9339fa', displayValue: 'STC' },
+            {
+              value: '5e594394e14f9a11ee9339fb',
+              displayValue: 'Rémy ART'
+            }
+          ]
+        },
+        value: '5e59427fe14f9a11ee9339f9',
+        label: 'Client :',
+        validation: {},
+        valid: true
+      },
       gitHubRepoName: {
         elementType: 'input',
         elementConfig: {
@@ -208,10 +228,11 @@ class AddProject extends Component {
     });
   };
 
-  register = (e) => {
+  addProject = (e) => {
     e.preventDefault();
 
-    this.props.onRegister(
+    this.props.onAddProject(
+      this.props.userToken,
       this.state.addProjectForm.title.value,
       this.state.addProjectForm.estimateAmount.value,
       this.state.addProjectForm.completionDeadline.value,
@@ -220,6 +241,7 @@ class AddProject extends Component {
       this.state.addProjectForm.status.value,
       this.state.addProjectForm.stacks.value,
       this.state.addProjectForm.hourlyCostDay.value,
+      this.state.addProjectForm.client.value,
       this.state.addProjectForm.gitHubRepoName.value,
       this.state.addProjectForm.gitHubRepoOwner.value
     );
@@ -265,4 +287,45 @@ class AddProject extends Component {
   }
 }
 
-export default AddProject;
+const mapStateToProps = (state) => {
+  return {
+    userToken: state.auth.token
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAddProject: (
+      token,
+      title,
+      estimateAmount,
+      completionDeadline,
+      startDate,
+      dueDateone,
+      status,
+      stacks,
+      hourlyCostDay,
+      client,
+      githubRepoName,
+      githubRepoOwner
+    ) =>
+      dispatch(
+        actions.addProject(
+          token,
+          title,
+          estimateAmount,
+          completionDeadline,
+          startDate,
+          dueDateone,
+          status,
+          stacks,
+          hourlyCostDay,
+          client,
+          githubRepoName,
+          githubRepoOwner
+        )
+      )
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddProject);

@@ -1,6 +1,72 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
 
+export const addProjectsStart = () => {
+  return {
+    type: actionTypes.ADD_PROJECTS_START
+  };
+};
+
+export const addProjectsSuccess = () => {
+  return {
+    type: actionTypes.ADD_PROJECTS_SUCCESS
+  };
+};
+
+export const addProjectsFail = (error) => {
+  return {
+    type: actionTypes.ADD_PROJECTS_FAIL,
+    error: error
+  };
+};
+
+export const addProject = (
+  token,
+  title,
+  estimateAmount,
+  completionDeadline,
+  startDate,
+  dueDateone,
+  status,
+  stacks,
+  hourlyCostDay,
+  client,
+  githubRepoName,
+  githubRepoOwner
+) => {
+  return (dispatch) => {
+    dispatch(addProjectsStart());
+    const addProjectData = {
+      title: title,
+      estimateAmount: estimateAmount,
+      completionDeadline: completionDeadline,
+      startDate: startDate,
+      dueDateone: dueDateone,
+      status: status,
+      stacks: stacks,
+      hourlyCostDay: hourlyCostDay,
+      client: client,
+      githubRepo: {
+        name: githubRepoName,
+        owner: githubRepoOwner
+      }
+    };
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    };
+    let url = 'http://localhost:3001/projects';
+    axios
+      .post(url, addProjectData, config)
+      .then((response) => {
+        console.log(response);
+        dispatch(addProjectsSuccess());
+      })
+      .catch((err) => {
+        dispatch(addProjectsFail(err.response.data.error));
+      });
+  };
+};
+
 export const fetchProjectsStart = () => {
   return {
     type: actionTypes.FETCH_PROJECTS_START
