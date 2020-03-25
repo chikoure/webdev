@@ -26,7 +26,7 @@ export const addProject = (
   estimateAmount,
   completionDeadline,
   startDate,
-  dueDateone,
+  dueDate,
   status,
   stacks,
   hourlyCostDay,
@@ -41,7 +41,7 @@ export const addProject = (
       estimateAmount: estimateAmount,
       completionDeadline: completionDeadline,
       startDate: startDate,
-      dueDateone: dueDateone,
+      dueDate: dueDate,
       status: status,
       stacks: stacks,
       hourlyCostDay: hourlyCostDay,
@@ -62,7 +62,7 @@ export const addProject = (
         dispatch(addProjectsSuccess());
       })
       .catch((err) => {
-        dispatch(addProjectsFail(err.response.data.error));
+        dispatch(addProjectsFail(err.response));
       });
   };
 };
