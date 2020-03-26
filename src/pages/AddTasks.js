@@ -6,9 +6,9 @@ import Headline from '../components/UI/Headlines/Headline/HeadLine';
 import Button from '../components/UI/Buttons/Button';
 import * as actions from '../store/actions/index';
 
-class AddSprint extends Component {
+class AddTasks extends Component {
   state = {
-    addSprintForm: {
+    addTaskForm: {
       title: {
         elementType: 'input',
         elementConfig: {
@@ -23,28 +23,14 @@ class AddSprint extends Component {
         valid: false,
         touched: false
       },
-      startDate: {
-        elementType: 'date',
+      description: {
+        elementType: 'input',
         elementConfig: {
-          type: 'date',
-          placeholder: 'Date de début'
+          type: 'text',
+          placeholder: 'Description'
         },
         value: '',
-        label: 'Date de début :',
-        validation: {
-          required: true
-        },
-        valid: false,
-        touched: false
-      },
-      dueDate: {
-        elementType: 'date',
-        elementConfig: {
-          type: 'date',
-          placeholder: 'Date de fin'
-        },
-        value: '',
-        label: 'Date de fin :',
+        label: 'Description :',
         validation: {
           required: true
         },
@@ -64,6 +50,20 @@ class AddSprint extends Component {
         label: 'Statut :',
         validation: {},
         valid: true
+      },
+      realisationTime: {
+        elementType: 'number',
+        elementConfig: {
+          type: 'number',
+          placeholder: 'Temps de realisation'
+        },
+        value: '',
+        label: 'Temps de realisation :',
+        validation: {
+          required: true
+        },
+        valid: false,
+        touched: false
       }
     },
     formIsValid: false
@@ -101,11 +101,11 @@ class AddSprint extends Component {
   }
 
   inputChangedHandler = (event, inputIdentifier) => {
-    const updatedAddSprintForm = {
-      ...this.state.addSprintForm
+    const updatedaddTaskForm = {
+      ...this.state.addTaskForm
     };
     const updatedFormElement = {
-      ...updatedAddSprintForm[inputIdentifier]
+      ...updatedaddTaskForm[inputIdentifier]
     };
     updatedFormElement.value = event.target.value;
     updatedFormElement.valid = this.checkValidity(
@@ -113,37 +113,38 @@ class AddSprint extends Component {
       updatedFormElement.validation
     );
     updatedFormElement.touched = true;
-    updatedAddSprintForm[inputIdentifier] = updatedFormElement;
+    updatedaddTaskForm[inputIdentifier] = updatedFormElement;
 
     let formIsValid = true;
-    for (let inputIdentifier in updatedAddSprintForm) {
-      formIsValid = updatedAddSprintForm[inputIdentifier].valid && formIsValid;
+    for (let inputIdentifier in updatedaddTaskForm) {
+      formIsValid = updatedaddTaskForm[inputIdentifier].valid && formIsValid;
     }
     this.setState({
-      addSprintForm: updatedAddSprintForm,
+      addTaskForm: updatedaddTaskForm,
       formIsValid: formIsValid
     });
   };
 
-  addSprint = (e) => {
+  addTask = (e) => {
     e.preventDefault();
 
-    this.props.onAddSprint(
+    this.props.onAddTasks(
       this.props.userToken,
-      this.props.match.params.id,
-      this.state.addSprintForm.title.value,
-      this.state.addSprintForm.startDate.value,
-      this.state.addSprintForm.dueDate.value,
-      this.state.addSprintForm.status.value
+      this.props.location.state.projectID,
+      this.props.location.state.sprintID,
+      this.state.addTaskForm.title.value,
+      this.state.addTaskForm.description.value,
+      this.state.addTaskForm.status.value,
+      this.state.addTaskForm.realisationTime.value
     );
   };
 
   render() {
     const formElementsArray = [];
-    for (let key in this.state.addSprintForm) {
+    for (let key in this.state.addTaskForm) {
       formElementsArray.push({
         id: key,
-        config: this.state.addSprintForm[key]
+        config: this.state.addTaskForm[key]
       });
     }
     let form = formElementsArray.map((formElement) => (
@@ -160,16 +161,18 @@ class AddSprint extends Component {
       />
     ));
 
+    console.log(this.props);
+
     return (
       <div className='form-container'>
         <Card className='card card--form'>
-          <Headline classe={'headline headline--big'}>AJOUT DE SPRINT</Headline>
+          <Headline classe={'headline headline--big'}>AJOUT DE TÂCHE</Headline>
           <div className='form--add-sprint'>{form}</div>
           <div>
             <Button
               classe='btn btn--large btn--large--green'
               text='AJOUTER'
-              onClick={this.addSprint}
+              onClick={this.addTask}
             />
           </div>
         </Card>
@@ -186,11 +189,27 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddSprint: (token, projectId, title, startDate, dueDate, status) =>
+    onAddTasks: (
+      token,
+      projectId,
+      sprintId,
+      title,
+      description,
+      status,
+      realisationTime
+    ) =>
       dispatch(
-        actions.addSprints(token, projectId, title, startDate, dueDate, status)
+        actions.addTasks(
+          token,
+          projectId,
+          sprintId,
+          title,
+          description,
+          status,
+          realisationTime
+        )
       )
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddSprint);
+export default connect(mapStateToProps, mapDispatchToProps)(AddTasks);

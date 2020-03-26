@@ -10,13 +10,15 @@ import thunk from 'redux-thunk';
 import authReducer from '../src/store/reducers/auth';
 import projectReducer from '../src/store/reducers/project';
 import sprintReducer from '../src/store/reducers/sprint';
+import taskReducer from '../src/store/reducers/task';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
   auth: authReducer,
   project: projectReducer,
-  sprint: sprintReducer
+  sprint: sprintReducer,
+  task: taskReducer
 });
 
 const store = createStore(

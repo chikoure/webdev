@@ -11,12 +11,9 @@ class MyProjects extends Component {
     this.props.history.push('/dashboard/myProjects/' + id);
   };
   render() {
-    // if (this.props.projects[0]) {
-    //   this.props.onFetchSprints(
-    //     this.props.userToken,
-    //     this.props.projects[0]._id
-    //   );
-    // }
+    if (this.props.projects[0]) {
+      console.log(this.props.projects);
+    }
     let projects = this.props.projects.map((elem) => {
       return (
         <Project

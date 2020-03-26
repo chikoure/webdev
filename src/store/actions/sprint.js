@@ -46,3 +46,54 @@ export const fetchSprints = (token, projectId) => {
       });
   };
 };
+
+export const addSprintsStart = () => {
+  return {
+    type: actionTypes.ADD_SPRINTS_START
+  };
+};
+
+export const addSprintsSuccess = () => {
+  return {
+    type: actionTypes.ADD_SPRINTS_SUCCESS
+  };
+};
+
+export const addSprintsFail = (error) => {
+  return {
+    type: actionTypes.ADD_SPRINTS_FAIL,
+    error: error
+  };
+};
+
+export const addSprints = (
+  token,
+  projectId,
+  title,
+  startDate,
+  dueDate,
+  status
+) => {
+  return (dispatch) => {
+    dispatch(addSprintsStart());
+    const addSprintData = {
+      title: title,
+      startDate: startDate,
+      dueDate: dueDate,
+      status: status
+    };
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    };
+    let url = `http://localhost:3001/sprints/${projectId}`;
+    axios
+      .post(url, addSprintData, config)
+      .then((response) => {
+        console.log(response);
+        dispatch(addSprintsSuccess());
+      })
+      .catch((err) => {
+        dispatch(addSprintsFail(err.response));
+      });
+  };
+};

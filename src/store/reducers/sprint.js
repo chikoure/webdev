@@ -6,6 +6,23 @@ const initialState = {
   loading: false
 };
 
+const addSprintsStart = (state, action) => {
+  return updateObject(state, { error: null, loading: true });
+};
+
+const addSprintsSuccess = (state, action) => {
+  return updateObject(state, {
+    loading: false
+  });
+};
+
+const addSprintsFail = (state, action) => {
+  return updateObject(state, {
+    error: action.error,
+    loading: false
+  });
+};
+
 const fetchSprintsStart = (state, action) => {
   return updateObject(state, { loading: true });
 };
@@ -23,6 +40,12 @@ const fetchSprintsFail = (state, action) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case actionTypes.ADD_SPRINTS_START:
+      return addSprintsStart(state, action);
+    case actionTypes.ADD_SPRINTS_SUCCESS:
+      return addSprintsSuccess(state, action);
+    case actionTypes.ADD_SPRINTS_FAIL:
+      return addSprintsFail(state, action);
     case actionTypes.FETCH_SPRINTS_START:
       return fetchSprintsStart(state, action);
     case actionTypes.FETCH_SPRINTS_SUCCESS:

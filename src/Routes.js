@@ -11,6 +11,8 @@ import AddSprint from './pages/AddSprint';
 import Logout from './pages/Logout';
 import MyProjects from './pages/MyProjects';
 import Sprint from '../src/components/Sprints/Sprint';
+import Tasks from '../src/components/Tasks/Tasks';
+import AddTasks from './pages/AddTasks';
 
 export class Routes extends Component {
   componentDidMount() {
@@ -37,7 +39,7 @@ export class Routes extends Component {
                 exact
                 component={AddProject}></Route>
               <Route
-                path='/dashboard/addSprint'
+                path='/dashboard/addSprint/:id'
                 exact
                 component={AddSprint}></Route>
               <Route path='/dashboard/logout' exact component={Logout}></Route>
@@ -46,6 +48,8 @@ export class Routes extends Component {
                 exact
                 component={Sprint}
               />
+              <Route path='/dashboard/addTasks/' exact component={AddTasks} />
+              <Route path='/dashboard/tasks/' exact component={Tasks} />
             </Switch>
           </LayoutDashboard>
         </Route>
