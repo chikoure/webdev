@@ -130,7 +130,7 @@ class AddSprint extends Component {
 
     this.props.onAddSprint(
       this.props.userToken,
-      this.props.match.params.id,
+      this.props.match.params.projectId,
       this.state.addSprintForm.title.value,
       this.state.addSprintForm.startDate.value,
       this.state.addSprintForm.dueDate.value,
