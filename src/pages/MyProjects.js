@@ -35,11 +35,11 @@ class MyProjects extends Component {
       );
     });
 
-    return <div className='projects'>
-      <div className='projects--container'>
-        {projects}
+    return (
+      <div className='projects'>
+        <div className='projects--container'>{projects}</div>
       </div>
-    </div>;
+    );
   }
 }
 

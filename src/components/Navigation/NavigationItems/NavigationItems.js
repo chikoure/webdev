@@ -18,8 +18,8 @@ const navigationItems = (props) => (
       </NavigationItem>
     ) : null}
     {!props.isAuthenticated ? null : (
-      <NavigationItem link='/dashboard/addSprint' exact>
-        Ajouter un sprint
+      <NavigationItem link='/dashboard/calendar' exact>
+        Planning
       </NavigationItem>
     )}
     {!props.isAuthenticated ? (

@@ -13,6 +13,7 @@ import MyProjects from './pages/MyProjects';
 import Sprint from '../src/components/Sprints/Sprint';
 import Tasks from '../src/components/Tasks/Tasks';
 import AddTasks from './pages/AddTasks';
+import Calendar from './pages/Calendar';
 
 export class Routes extends Component {
   componentDidMount() {
@@ -38,6 +39,10 @@ export class Routes extends Component {
                 path='/dashboard/addProject'
                 exact
                 component={AddProject}></Route>
+              <Route
+                path='/dashboard/calendar'
+                exact
+                component={Calendar}></Route>
               <Route path='/dashboard/logout' exact component={Logout}></Route>
               <Route
                 path='/dashboard/myProjects/:projectId/sprints'

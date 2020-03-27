@@ -3,7 +3,7 @@ import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux';
 import Button from '../UI/Buttons/Button';
 
-class Sprint extends Component {
+class Tasks extends Component {
   componentDidMount() {
     this.props.onFetchTasks(
       this.props.userToken,
@@ -83,4 +83,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Sprint);
+export default connect(mapStateToProps, mapDispatchToProps)(Tasks);
