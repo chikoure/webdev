@@ -13,14 +13,20 @@ class Sprint extends Component {
     this.props.history.push('/dashboard/addSprint/' + id);
   };
 
+  // taskDetailsHandler = (sprintId, projectId) => {
+  //   this.props.history.push({
+  //     pathname: '/dashboard/tasks',
+  //     state: {
+  //       projectId: projectId,
+  //       sprintId: sprintId
+  //     }
+  //   });
+  // };
+
   taskDetailsHandler = (sprintId, projectId) => {
-    this.props.history.push({
-      pathname: '/dashboard/tasks',
-      state: {
-        projectId: projectId,
-        sprintId: sprintId
-      }
-    });
+    this.props.history.push(
+      `/dashboard/myProjects/${projectId}/sprints/${sprintId}`
+    );
   };
 
   render() {

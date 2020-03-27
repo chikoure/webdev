@@ -5,28 +5,25 @@ import Button from '../UI/Buttons/Button';
 
 class Sprint extends Component {
   componentDidMount() {
-    this.props.onFetchTasks(
-      this.props.userToken,
-      this.props.location.state.projectId,
-      this.props.location.state.sprintId
-    );
+    // this.props.onFetchTasks(
+    //   this.props.userToken,
+    //   this.props.location.state.projectId,
+    //   this.props.location.state.sprintId
+    // );
   }
 
-  addTaskHandler = (sprintId, projectId) => {
-    this.props.history.push({
-      pathname: '/dashboard/tasks/addTasks',
-      state: {
-        projectId: projectId,
-        sprintId: sprintId
-      }
-    });
-  };
+  // addTaskHandler = (sprintId, projectId) => {
+  //   this.props.history.push({
+  //     pathname: '/dashboard/tasks/addTasks',
+  //     state: {
+  //       projectId: projectId,
+  //       sprintId: sprintId
+  //     }
+  //   });
+  // };
   render() {
     console.log(this.props);
-    const projetId = this.props.location.state.projectId;
-    const sprintId = this.props.location.state.sprintId;
-    console.log(projetId);
-    console.log(sprintId);
+
     let tasks = this.props.tasks.map((t) => {
       return (
         <div>
@@ -34,17 +31,16 @@ class Sprint extends Component {
           <p>{t.description}</p>
           <p>{t.status.name}</p>
           <p>{t.realisationTime}</p>
-          <Button
-            text='Ajouter une tâche'
-            onClick={() => {
-              this.addTaskHandler(sprintId, projetId);
-            }}
-          />
         </div>
       );
     });
 
-    return <div>{tasks}</div>;
+    return (
+      <div>
+        {tasks}
+        <Button text='Ajouter une tâche' />
+      </div>
+    );
   }
 }
 
