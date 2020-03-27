@@ -13,7 +13,7 @@ class Sprint extends Component {
   }
 
   sprintAddHandler = (id) => {
-    this.props.history.push('/dashboard/addSprint/' + id);
+    this.props.history.push(`/dashboard/myProjects/sprints/${id}/addSprint`);
   };
 
   // taskDetailsHandler = (sprintId, projectId) => {
@@ -67,7 +67,7 @@ class Sprint extends Component {
         <Button
           text='Ajouter un sprint'
           onClick={() => {
-            this.sprintAddHandler(this.props.match.params.id);
+            this.sprintAddHandler(this.props.match.params.projectId);
           }}
         />
       </div>
