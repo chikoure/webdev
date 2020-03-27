@@ -48,8 +48,12 @@ export class Routes extends Component {
                 exact
                 component={Sprint}
               />
-              <Route path='/dashboard/addTasks/' exact component={AddTasks} />
-              <Route path='/dashboard/tasks/' exact component={Tasks} />
+              <Route path='/dashboard/tasks' exact component={Tasks} />
+              <Route
+                path='/dashboard/tasks/addTasks'
+                exact
+                component={AddTasks}
+              />
             </Switch>
           </LayoutDashboard>
         </Route>

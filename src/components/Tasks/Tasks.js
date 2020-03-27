@@ -14,7 +14,7 @@ class Sprint extends Component {
 
   addTaskHandler = (sprintId, projectId) => {
     this.props.history.push({
-      pathname: '/dashboard/addTasks',
+      pathname: '/dashboard/tasks/addTasks',
       state: {
         projectId: projectId,
         sprintId: sprintId
@@ -22,6 +22,7 @@ class Sprint extends Component {
     });
   };
   render() {
+    console.log(this.props);
     const projetId = this.props.location.state.projectId;
     const sprintId = this.props.location.state.sprintId;
     console.log(projetId);

@@ -45,16 +45,20 @@ class Sprint extends Component {
               </p>
             );
           })}
-          <Button
-            text='Ajouter un sprint'
-            onClick={() => {
-              this.sprintAddHandler(this.props.match.params.id);
-            }}
-          />
         </div>
       );
     });
-    return <div>{sprin}</div>;
+    return (
+      <div>
+        {sprin}
+        <Button
+          text='Ajouter un sprint'
+          onClick={() => {
+            this.sprintAddHandler(this.props.match.params.id);
+          }}
+        />
+      </div>
+    );
   }
 }
 
