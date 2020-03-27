@@ -46,6 +46,7 @@ class Sprints extends Component {
   return (
     <div>
       <Button
+			  classe='btn btn--large btn--large--green'
         text='Ajouter un sprint'
         onClick={() => {
           this.sprintAddHandler(this.props.match.params.id);

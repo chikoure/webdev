@@ -36,6 +36,7 @@ class Tasks extends Component {
     return (
       <div>
 		<Button
+			classe='btn btn--large btn--large--green'
 			text='Ajouter une tâche'
 			onClick={() => {
 			this.addTaskHandler(
