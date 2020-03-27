@@ -1,92 +1,56 @@
 import React, { Component } from 'react';
-import * as actions from '../../store/actions/index';
-import { connect } from 'react-redux';
-import Button from '../UI/Buttons/Button';
+import Hoc from '../../hoc/Hoc';
+import Headline from '../UI/Headlines/Headline/HeadLine';
+import Card from '../UI/cards/Card';
+import { withRouter } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faLink
+} from '@fortawesome/free-solid-svg-icons';
+library.add(faLink);
 
-class Sprint extends Component {
-  componentDidMount() {
-    console.log(this.props.match.params.projectId);
-    this.props.onFetchSprints(
-      this.props.userToken,
-      this.props.match.params.projectId
-    );
-  }
+const Sprint = (props) => {
+console.log('props');
+console.log(props);
+  let status = 'statut'
+  if(props.statusName == 'En cours')
+    status += ' statut--red';
+  else
+    status += ' statut--emeraud';
 
-  sprintAddHandler = (id) => {
-    this.props.history.push(`/dashboard/myProjects/sprints/${id}/addSprint`);
-  };
-
-  // taskDetailsHandler = (sprintId, projectId) => {
-  //   this.props.history.push({
-  //     pathname: '/dashboard/tasks',
-  //     state: {
-  //       projectId: projectId,
-  //       sprintId: sprintId
-  //     }
-  //   });
-  // };
-
-  taskDetailsHandler = (projectId, sprintId) => {
-    this.props.history.push(
-      `/dashboard/myProjects/${projectId}/sprints/${sprintId}/tasks`
-    );
-  };
-
-  render() {
-    if (this.props.sprints) {
-      console.log(this.props.sprints);
-    }
-    console.log(this.props);
-    const sprints = this.props.sprints;
-    const sprin = sprints.map((e) => {
-      return (
+  return (
+    <Hoc>
+      <div className='sprint--container'>
+      <Card className='card card--sprint'>
         <div>
-          <p>{e.title}</p>
-          <p>{e.startDate}</p>
-          <p>{e.dueDate}</p>
-          <p>{e.status.name}</p>
-          {e.tasks.map((task) => {
-            return (
-              <p
-                onClick={() =>
-                  this.taskDetailsHandler(
-                    this.props.match.params.projectId,
-                    e._id
-                  )
-                }>
-                {task.title}
-              </p>
-            );
-          })}
+          <Headline classe='headline headline--small'>
+            <span title={props.statusName} className={status}></span>
+            {(props.title).toUpperCase()}
+          </Headline>
+          <div class='sprint--data'>
+            <ul>
+              <li>
+                Date de début : {new Date(props.startDate).toDateString()}
+              </li>
+              <li>
+                Date de fin : {new Date(props.dueDate).toDateString()}
+              </li>
+              <li>
+                Nom du Git : {props.statusName}
+              </li>
+            </ul>
+            <div className='lien-task' onClick={props.clicked}>
+              Tasks
+              &nbsp;
+              <FontAwesomeIcon icon={faLink} />
+            </div>
+          </div>
         </div>
-      );
-    });
-    return (
-      <div>
-        {sprin}
-        <Button
-          text='Ajouter un sprint'
-          onClick={() => {
-            this.sprintAddHandler(this.props.match.params.projectId);
-          }}
-        />
+      </Card>
       </div>
-    );
-  }
+    </Hoc>
+  );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    userToken: state.auth.token,
-    sprints: state.sprint.sprints
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onFetchSprints: (token, projectId) =>
-      dispatch(actions.fetchSprints(token, projectId))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Sprint);
+export default withRouter(Sprint);

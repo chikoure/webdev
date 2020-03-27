@@ -1,7 +1,6 @@
 import React from 'react';
 import Hoc from '../../../hoc/Hoc';
 import Headline from '../Headlines/Headline/HeadLine';
-import Gommette from '../Gommette/Gommette';
 import Card from '../cards/Card';
 import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,9 +11,6 @@ import {
 library.add(faLink);
 
 const Project = (props) => {
-  let sprints = props.sprints.map((elem) => {
-    return <Headline>{elem.title}</Headline>;
-  });
   let status = 'statut'
   if(props.statusName == 'En cours')
     status += ' statut--red';
