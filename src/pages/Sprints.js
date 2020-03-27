@@ -13,7 +13,7 @@ class Sprints extends Component {
   }
 
   sprintAddHandler = (id) => {
-    this.props.history.push('/dashboard/addSprint/' + id);
+    this.props.history.push(`/dashboard/myProjects/sprints/${id}/addSprint`);
   };
 
   taskDetailsHandler = (projectId, sprintId) => {
@@ -28,35 +28,36 @@ class Sprints extends Component {
     }
     console.log(this.props);
 
-  let sprints = this.props.sprints.map((elem) => {
-		console.log(elem);
-		return (
-		  <Sprint
-			title={elem.title}
-			startDate={elem.startDate}
-			dueDate={elem.dueDate}
-			statusName={elem.status.name}
-			tasks={elem.tasks}
-			clicked={() => {
-			  this.taskDetailsHandler(this.props.match.params.projectId, elem._id);
-			}}
-		  />
-		);
-	});
-  return (
-    <div>
-      <Button
-        text='Ajouter un sprint'
-        onClick={() => {
-          this.sprintAddHandler(this.props.match.params.id);
-        }}
-      />
-		  <div className='sprints'>
-			  <div className='sprints--container'>
-				  {sprints}
-			  </div>
-		  </div>
-    </div>
+    let sprints = this.props.sprints.map((elem) => {
+      console.log(elem);
+      return (
+        <Sprint
+          title={elem.title}
+          startDate={elem.startDate}
+          dueDate={elem.dueDate}
+          statusName={elem.status.name}
+          tasks={elem.tasks}
+          clicked={() => {
+            this.taskDetailsHandler(
+              this.props.match.params.projectId,
+              elem._id
+            );
+          }}
+        />
+      );
+    });
+    return (
+      <div>
+        <Button
+          text='Ajouter un sprint'
+          onClick={() => {
+            this.sprintAddHandler(this.props.match.params.projectId);
+          }}
+        />
+        <div className='sprints'>
+          <div className='sprints--container'>{sprints}</div>
+        </div>
+      </div>
     );
   }
 }

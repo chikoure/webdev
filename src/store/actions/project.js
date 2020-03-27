@@ -9,7 +9,8 @@ export const addProjectsStart = () => {
 
 export const addProjectsSuccess = () => {
   return {
-    type: actionTypes.ADD_PROJECTS_SUCCESS
+    type: actionTypes.ADD_PROJECTS_SUCCESS,
+    loading: true
   };
 };
 

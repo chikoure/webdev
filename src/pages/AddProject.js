@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import Input from '../components/UI/Inputs/Input';
 import Card from '../components/UI/cards/Card';
 import Headline from '../components/UI/Headlines/Headline/HeadLine';
@@ -245,6 +246,7 @@ class AddProject extends Component {
       this.state.addProjectForm.gitHubRepoName.value,
       this.state.addProjectForm.gitHubRepoOwner.value
     );
+    return <Redirect to={'/dashboard/myProjects'} />;
   };
 
   render() {
