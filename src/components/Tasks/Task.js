@@ -3,14 +3,8 @@ import Hoc from '../../hoc/Hoc';
 import Headline from '../UI/Headlines/Headline/HeadLine';
 import Card from '../UI/cards/Card';
 import { withRouter } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-  faLink
-} from '@fortawesome/free-solid-svg-icons';
-library.add(faLink);
 
-const Sprint = (props) => {
+const Task = (props) => {
   let status = 'statut'
   switch(props.statusName)
   {
@@ -27,30 +21,22 @@ const Sprint = (props) => {
 
   return (
     <Hoc>
-      <div className='sprint--container'>
-      <Card className='card card--sprint'>
+      <div className='task--container'>
+      <Card className='card card--task'>
         <div>
           <Headline classe='headline headline--small'>
             <span title={props.statusName} className={status}></span>
             {(props.title).toUpperCase()}
           </Headline>
-          <div class='sprint--data'>
-            <ul class='sprint--ul'>
+          <div class='task--data'>
+            <ul class='task--ul'>
               <li>
-                Date de début : {new Date(props.startDate).toDateString()}
+                Description : {props.description}
               </li>
               <li>
-                Date de fin : {new Date(props.dueDate).toDateString()}
-              </li>
-              <li>
-                Nom du Git : {props.statusName}
+                Temps de réalisation : {props.realisationTime} jours
               </li>
             </ul>
-            <div className='lien-task' onClick={props.clicked}>
-              Tasks
-              &nbsp;
-              <FontAwesomeIcon icon={faLink} />
-            </div>
           </div>
         </div>
       </Card>
@@ -59,4 +45,4 @@ const Sprint = (props) => {
   );
 }
 
-export default withRouter(Sprint);
+export default withRouter(Task);

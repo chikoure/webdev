@@ -1,4 +1,4 @@
-.project {
+.task {
 	font: 'Montserrat';
 	text-align: center;
 	&--title {
@@ -9,7 +9,7 @@
 	&--container {
 		width: 33%;
 		margin-bottom: 1.5rem;
-		display: flex;
+		// display: flex;
 		justify-content: space-around;
 	}
 	&--content {
@@ -17,6 +17,7 @@
 	}
 	&--data ul {
 		text-align: start;
+		padding-bottom: 1rem;
 		:first-child {
 			padding-top: 1rem;
 		}
@@ -26,7 +27,7 @@
 	}
 }
 
-.projects {
+.tasks {
 	justify-content: space-around;
 	width: 100%;
 	flex-direction: row;
@@ -58,12 +59,4 @@
     @media(max-width:600px) {
         display:none;
     }
-}
-
-.lien-sprint{
-	padding-bottom: 1rem;
-	padding-top: 1rem;
-	&:hover {
-		cursor: pointer;
-	}
 }

@@ -10,8 +10,8 @@ import AddProject from './pages/AddProject';
 import AddSprint from './pages/AddSprint';
 import Logout from './pages/Logout';
 import MyProjects from './pages/MyProjects';
-import Sprint from '../src/components/Sprints/Sprint';
-import Tasks from '../src/components/Tasks/Tasks';
+import Sprints from './pages/Sprints';
+import Tasks from './pages/Tasks';
 import AddTasks from './pages/AddTasks';
 import Calendar from './pages/Calendar';
 
@@ -47,7 +47,7 @@ export class Routes extends Component {
               <Route
                 path='/dashboard/myProjects/:projectId/sprints'
                 exact
-                component={Sprint}
+                component={Sprints}
               />
               <Route
                 path='/dashboard/myProjects/sprints/:projectId/addSprint'

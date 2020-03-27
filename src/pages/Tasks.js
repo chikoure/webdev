@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import * as actions from '../../store/actions/index';
+import * as actions from '../store/actions/index';
 import { connect } from 'react-redux';
-import Button from '../UI/Buttons/Button';
+import Button from '../components/UI/Buttons/Button';
+import Task from '../components/Tasks/Task';
 
 class Tasks extends Component {
   componentDidMount() {
@@ -18,31 +19,36 @@ class Tasks extends Component {
     );
   };
   render() {
-    console.log(this.props);
+    console.log('TASKS', this.props);
 
-    let tasks = this.props.tasks.map((t) => {
-      return (
-        <div>
-          <p>{t.title}</p>
-          <p>{t.description}</p>
-          <p>{t.status.name}</p>
-          <p>{t.realisationTime}</p>
-        </div>
-      );
-    });
+	let tasks = this.props.tasks.map((elem) => {
+		console.log(elem);
+		return (
+		  <Task
+			title={elem.title}
+			description={elem.description}
+			realisationTime={elem.realisationTime}
+			statusName={elem.status.name}
+		  />
+		);
+	});
 
     return (
       <div>
-        {tasks}
-        <Button
-          text='Ajouter une tâche'
-          onClick={() => {
-            this.addTaskHandler(
-              this.props.match.params.projectId,
-              this.props.match.params.sprintId
-            );
-          }}
-        />
+		<Button
+			text='Ajouter une tâche'
+			onClick={() => {
+			this.addTaskHandler(
+				this.props.match.params.projectId,
+				this.props.match.params.sprintId
+			);
+			}}
+		/>
+		<div className='tasks'>
+			<div className='tasks--container'>
+       			{tasks}
+			</div>
+		</div>
       </div>
     );
   }

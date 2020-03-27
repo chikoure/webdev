@@ -1,7 +1,6 @@
 import React from 'react';
 import Hoc from '../../../hoc/Hoc';
 import Headline from '../Headlines/Headline/HeadLine';
-import Gommette from '../Gommette/Gommette';
 import Card from '../cards/Card';
 import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,14 +11,19 @@ import {
 library.add(faLink);
 
 const Project = (props) => {
-  let sprints = props.sprints.map((elem) => {
-    return <Headline>{elem.title}</Headline>;
-  });
   let status = 'statut'
-  if(props.statusName == 'En cours')
-    status += ' statut--red';
-  else
-    status += ' statut--emeraud';
+  switch(props.statusName)
+  {
+    case 'En cours':
+      status += ' statut--red';
+      break;
+    case 'Terminé':
+      status += ' statut--emeraud';
+      break;
+    case 'A faire':
+      status += ' statut--dark-grey';
+      break;
+  }
 
   return (
     <Hoc>
@@ -31,7 +35,7 @@ const Project = (props) => {
             {(props.title).toUpperCase()}
           </Headline>
           <div class='project--data'>
-            <ul>
+            <ul class='project--ul'>
               <li>
                 Nom du Git : {props.gitName}
               </li>
