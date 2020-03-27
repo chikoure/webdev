@@ -79,7 +79,7 @@ export const addTasks = (
     const config = {
       headers: { Authorization: `Bearer ${token}` }
     };
-    let url = `http://localhost:3001/sprints/${projectId}/${sprintId}`;
+    let url = `http://localhost:3001/tasks/${projectId}/${sprintId}`;
     axios
       .post(url, addTasksData, config)
       .then((response) => {

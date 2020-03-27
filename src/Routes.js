@@ -38,18 +38,26 @@ export class Routes extends Component {
                 path='/dashboard/addProject'
                 exact
                 component={AddProject}></Route>
-              <Route
-                path='/dashboard/addSprint/:id'
-                exact
-                component={AddSprint}></Route>
               <Route path='/dashboard/logout' exact component={Logout}></Route>
               <Route
-                path='/dashboard/myProjects/:id'
+                path='/dashboard/myProjects/:projectId/sprints'
                 exact
                 component={Sprint}
               />
-              <Route path='/dashboard/addTasks/' exact component={AddTasks} />
-              <Route path='/dashboard/tasks/' exact component={Tasks} />
+              <Route
+                path='/dashboard/myProjects/sprints/:projectId/addSprint'
+                exact
+                component={AddSprint}></Route>
+              <Route
+                path='/dashboard/myProjects/:projectId/sprints/:sprintId/tasks'
+                exact
+                component={Tasks}
+              />
+              <Route
+                path='/dashboard/myProjects/:projectId/sprints/:sprintId/tasks/addTasks'
+                exact
+                component={AddTasks}
+              />
             </Switch>
           </LayoutDashboard>
         </Route>

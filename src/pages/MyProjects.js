@@ -8,7 +8,7 @@ class MyProjects extends Component {
     this.props.onFetchProjects(this.props.userToken);
   }
   sprintSelectedHandler = (id) => {
-    this.props.history.push('/dashboard/myProjects/' + id);
+    this.props.history.push(`/dashboard/myProjects/${id}/sprints`);
   };
   render() {
     if (this.props.projects[0]) {
