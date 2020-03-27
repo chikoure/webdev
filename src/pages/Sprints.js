@@ -28,7 +28,7 @@ class Sprints extends Component {
     }
     console.log(this.props);
 
-    let sprints = this.props.sprints.map((elem) => {
+  let sprints = this.props.sprints.map((elem) => {
 		console.log(elem);
 		return (
 		  <Sprint
@@ -43,20 +43,20 @@ class Sprints extends Component {
 		  />
 		);
 	});
-    return (
-      <div>
-        <Button
-          text='Ajouter un sprint'
-          onClick={() => {
-            this.sprintAddHandler(this.props.match.params.id);
-          }}
-        />
-		<div className='projects'>
-			<div className='projects--container'>
-				{sprints}
-			</div>
-		</div>
-      </div>
+  return (
+    <div>
+      <Button
+        text='Ajouter un sprint'
+        onClick={() => {
+          this.sprintAddHandler(this.props.match.params.id);
+        }}
+      />
+		  <div className='sprints'>
+			  <div className='sprints--container'>
+				  {sprints}
+			  </div>
+		  </div>
+    </div>
     );
   }
 }

@@ -11,7 +11,7 @@ import AddSprint from './pages/AddSprint';
 import Logout from './pages/Logout';
 import MyProjects from './pages/MyProjects';
 import Sprints from './pages/Sprints';
-import Tasks from '../src/components/Tasks/Tasks';
+import Tasks from './pages/Tasks';
 import AddTasks from './pages/AddTasks';
 
 export class Routes extends Component {

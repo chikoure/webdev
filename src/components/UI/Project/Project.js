@@ -12,10 +12,18 @@ library.add(faLink);
 
 const Project = (props) => {
   let status = 'statut'
-  if(props.statusName == 'En cours')
-    status += ' statut--red';
-  else
-    status += ' statut--emeraud';
+  switch(props.statusName)
+  {
+    case 'En cours':
+      status += ' statut--red';
+      break;
+    case 'Terminé':
+      status += ' statut--emeraud';
+      break;
+    case 'A faire':
+      status += ' statut--dark-grey';
+      break;
+  }
 
   return (
     <Hoc>
@@ -27,7 +35,7 @@ const Project = (props) => {
             {(props.title).toUpperCase()}
           </Headline>
           <div class='project--data'>
-            <ul>
+            <ul class='project--ul'>
               <li>
                 Nom du Git : {props.gitName}
               </li>

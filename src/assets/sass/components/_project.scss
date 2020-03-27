@@ -16,6 +16,7 @@
 		width: 50%;
 	}
 	&--data ul {
+		text-align: start;
 		:first-child {
 			padding-top: 1rem;
 		}
@@ -50,6 +51,9 @@
 	}
 	&--emeraud {
 		background-color: $color-emeraud;
+	}
+	&--dark-grey {
+		background-color: $color-dark-grey;
 	}
     @media(max-width:600px) {
         display:none;

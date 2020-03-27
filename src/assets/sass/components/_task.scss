@@ -1,4 +1,4 @@
-.sprint {
+.task {
 	font: 'Montserrat';
 	text-align: center;
 	&--title {
@@ -17,6 +17,7 @@
 	}
 	&--data ul {
 		text-align: start;
+		padding-bottom: 1rem;
 		:first-child {
 			padding-top: 1rem;
 		}
@@ -26,7 +27,7 @@
 	}
 }
 
-.sprints {
+.tasks {
 	justify-content: space-around;
 	width: 100%;
 	flex-direction: row;
@@ -58,12 +59,4 @@
     @media(max-width:600px) {
         display:none;
     }
-}
-
-.lien-task{
-	padding-bottom: 1rem;
-	padding-top: 1rem;
-	&:hover {
-		cursor: pointer;
-	}
 }
