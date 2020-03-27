@@ -1,48 +1,71 @@
 import React from 'react';
 import Hoc from '../../../hoc/Hoc';
 import Headline from '../Headlines/Headline/HeadLine';
+import Gommette from '../Gommette/Gommette';
 import Card from '../cards/Card';
 import { withRouter } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faLink
+} from '@fortawesome/free-solid-svg-icons';
+library.add(faLink);
 
 const Project = (props) => {
   let sprints = props.sprints.map((elem) => {
     return <Headline>{elem.title}</Headline>;
   });
+  let status = 'statut'
+  if(props.statusName == 'En cours')
+    status += ' statut--red';
+  else
+    status += ' statut--emeraud';
+
   return (
     <Hoc>
-      <Card className='card'>
-        <div className='project--title'>
-          <h2>Projet : {props.title}</h2>
-        </div>
-        <div className='project--container' onClick={props.clicked}>
-          <div className='project--content'>
-            <hr />
-            <h3>Données</h3>
-            <hr />
-            <p>Statut : {props.statusName}</p>
-            <p>Stacks utilisés : {props.stacks}</p>
-            <p>Coût horaire journalier : {props.hourlyCostDay}€</p>
-            <p>Temps estimé : {props.estimateAmount}</p>
-            <p>
-              Date de complétion :{' '}
-              {new Date(props.completionDeadline).toDateString()}
-            </p>
-            <p>Date de début : {new Date(props.startDate).toDateString()}</p>
-            <p>Date de fin : {new Date(props.dueDate).toDateString()}</p>
-          </div>
-          <div className='project--content'>
-            <hr />
-            <h3>Github</h3>
-            <hr />
-            <p>Nom : {props.gitName}</p>
-            <p>Propiétaire : {props.gitOwner}</p>
-            <hr />
-            <h3>Sprints</h3>
-            <hr />
-            {sprints}
+      <div className='project--container'>
+      <Card className='card card--project'>
+        <div>
+          <Headline classe='headline headline--small'>
+            <span title={props.statusName} className={status}></span>
+            {(props.title).toUpperCase()}
+          </Headline>
+          <div class='project--data'>
+            <ul>
+              <li>
+                Nom du Git : {props.gitName}
+              </li>
+              <li>
+                Propiétaire du Git : {props.gitOwner}
+              </li>
+              <li>
+                Date de début : {new Date(props.startDate).toDateString()}
+              </li>
+              <li>
+                Date de fin : {new Date(props.dueDate).toDateString()}
+              </li>
+              <li>
+                Délais de réalisation : {props.estimateAmount} jours
+              </li>
+              <li>
+                Coût horaire journalier : {props.hourlyCostDay}€
+              </li>
+              <li>
+                Date de complétion :{' '}{new Date(props.completionDeadline).toDateString()}
+              </li>
+              <li>
+                Stack utilisé : {props.stacks}
+              </li>
+            </ul>
+            <div className='lien-sprint' onClick={props.clicked}>
+              Sprints
+              &nbsp;
+              <FontAwesomeIcon icon={faLink} />
+            </div>
           </div>
         </div>
       </Card>
+      </div>
     </Hoc>
   );
 };
