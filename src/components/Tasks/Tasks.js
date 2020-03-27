@@ -5,22 +5,18 @@ import Button from '../UI/Buttons/Button';
 
 class Sprint extends Component {
   componentDidMount() {
-    // this.props.onFetchTasks(
-    //   this.props.userToken,
-    //   this.props.location.state.projectId,
-    //   this.props.location.state.sprintId
-    // );
+    this.props.onFetchTasks(
+      this.props.userToken,
+      this.props.match.params.projectId,
+      this.props.match.params.sprintId
+    );
   }
 
-  // addTaskHandler = (sprintId, projectId) => {
-  //   this.props.history.push({
-  //     pathname: '/dashboard/tasks/addTasks',
-  //     state: {
-  //       projectId: projectId,
-  //       sprintId: sprintId
-  //     }
-  //   });
-  // };
+  addTaskHandler = (projectId, sprintId) => {
+    this.props.history.push(
+      `/dashboard/myProjects/${projectId}/sprints/${sprintId}/tasks/addTasks`
+    );
+  };
   render() {
     console.log(this.props);
 
@@ -38,7 +34,15 @@ class Sprint extends Component {
     return (
       <div>
         {tasks}
-        <Button text='Ajouter une tâche' />
+        <Button
+          text='Ajouter une tâche'
+          onClick={() => {
+            this.addTaskHandler(
+              this.props.match.params.projectId,
+              this.props.match.params.sprintId
+            );
+          }}
+        />
       </div>
     );
   }

@@ -5,8 +5,11 @@ import Button from '../UI/Buttons/Button';
 
 class Sprint extends Component {
   componentDidMount() {
-    console.log(this.props.match.params.id);
-    this.props.onFetchSprints(this.props.userToken, this.props.match.params.id);
+    console.log(this.props.match.params.projectId);
+    this.props.onFetchSprints(
+      this.props.userToken,
+      this.props.match.params.projectId
+    );
   }
 
   sprintAddHandler = (id) => {
@@ -23,9 +26,9 @@ class Sprint extends Component {
   //   });
   // };
 
-  taskDetailsHandler = (sprintId, projectId) => {
+  taskDetailsHandler = (projectId, sprintId) => {
     this.props.history.push(
-      `/dashboard/myProjects/${projectId}/sprints/${sprintId}`
+      `/dashboard/myProjects/${projectId}/sprints/${sprintId}/tasks`
     );
   };
 
@@ -33,6 +36,7 @@ class Sprint extends Component {
     if (this.props.sprints) {
       console.log(this.props.sprints);
     }
+    console.log(this.props);
     const sprints = this.props.sprints;
     const sprin = sprints.map((e) => {
       return (
@@ -45,7 +49,10 @@ class Sprint extends Component {
             return (
               <p
                 onClick={() =>
-                  this.taskDetailsHandler(e._id, this.props.match.params.id)
+                  this.taskDetailsHandler(
+                    this.props.match.params.projectId,
+                    e._id
+                  )
                 }>
                 {task.title}
               </p>

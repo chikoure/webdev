@@ -41,12 +41,12 @@ class AddTasks extends Component {
         elementType: 'select',
         elementConfig: {
           options: [
-            { value: '5e59461d75ccbe128b54a6e3', displayValue: 'En cours' },
-            { value: '5e59461d75ccbe128b54a6e4', displayValue: 'Terminé' },
-            { value: '5e59461d75ccbe128b54a6e5', displayValue: 'A faire' }
+            { value: '5e594639d31e841297a76bc4', displayValue: 'En cours' },
+            { value: '5e594639d31e841297a76bc5', displayValue: 'Terminé' },
+            { value: '5e594639d31e841297a76bc6', displayValue: 'A faire' }
           ]
         },
-        value: '5e59461d75ccbe128b54a6e5',
+        value: '5e594639d31e841297a76bc6',
         label: 'Statut :',
         validation: {},
         valid: true
@@ -130,8 +130,8 @@ class AddTasks extends Component {
 
     this.props.onAddTasks(
       this.props.userToken,
-      this.props.location.state.projectID,
-      this.props.location.state.sprintID,
+      this.props.match.params.projectId,
+      this.props.match.params.sprintId,
       this.state.addTaskForm.title.value,
       this.state.addTaskForm.description.value,
       this.state.addTaskForm.status.value,

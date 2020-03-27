@@ -40,21 +40,21 @@ export class Routes extends Component {
                 component={AddProject}></Route>
               <Route path='/dashboard/logout' exact component={Logout}></Route>
               <Route
-                path='/dashboard/myProjects/:id/sprints'
+                path='/dashboard/myProjects/:projectId/sprints'
                 exact
                 component={Sprint}
               />
               <Route
-                path='/dashboard/myProjects/sprints/:id/addSprint'
+                path='/dashboard/myProjects/sprints/:projectId/addSprint'
                 exact
                 component={AddSprint}></Route>
               <Route
-                path='/dashboard/myProjects/:id/sprints/:id'
+                path='/dashboard/myProjects/:projectId/sprints/:sprintId/tasks'
                 exact
                 component={Tasks}
               />
               <Route
-                path='/dashboard/tasks/addTasks'
+                path='/dashboard/myProjects/:projectId/sprints/:sprintId/tasks/addTasks'
                 exact
                 component={AddTasks}
               />
