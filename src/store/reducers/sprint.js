@@ -3,7 +3,8 @@ import { updateObject } from '../utility';
 
 const initialState = {
   sprints: [],
-  loading: false
+  loading: false,
+  response: null
 };
 
 const addSprintsStart = (state, action) => {
@@ -12,7 +13,8 @@ const addSprintsStart = (state, action) => {
 
 const addSprintsSuccess = (state, action) => {
   return updateObject(state, {
-    loading: false
+    loading: false,
+    response: action.response
   });
 };
 

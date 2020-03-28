@@ -3,8 +3,10 @@ import { updateObject } from '../utility';
 
 const initialState = {
   projects: [],
+  response: null,
   projectId: null,
-  loading: false
+  loading: false,
+  addedProject: false
 };
 
 const addProjectsStart = (state, action) => {
@@ -13,7 +15,8 @@ const addProjectsStart = (state, action) => {
 
 const addProjectsSuccess = (state, action) => {
   return updateObject(state, {
-    loading: false
+    loading: false,
+    response: action.response
   });
 };
 
@@ -30,7 +33,6 @@ const fetchProjectsStart = (state, action) => {
 
 const fetchProjectsSuccess = (state, action) => {
   return updateObject(state, {
-    projectId: action.projectd,
     projects: action.projects,
     loading: false
   });

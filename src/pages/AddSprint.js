@@ -5,6 +5,7 @@ import Card from '../components/UI/cards/Card';
 import Headline from '../components/UI/Headlines/Headline/HeadLine';
 import Button from '../components/UI/Buttons/Button';
 import * as actions from '../store/actions/index';
+import { Redirect } from 'react-router';
 
 class AddSprint extends Component {
   state = {
@@ -66,7 +67,8 @@ class AddSprint extends Component {
         valid: true
       }
     },
-    formIsValid: false
+    formIsValid: false,
+    redirect: false
   };
 
   checkValidity(value, rules) {
@@ -136,6 +138,7 @@ class AddSprint extends Component {
       this.state.addSprintForm.dueDate.value,
       this.state.addSprintForm.status.value
     );
+    this.setState({ redirect: true });
   };
 
   render() {
@@ -159,9 +162,17 @@ class AddSprint extends Component {
         changed={(event) => this.inputChangedHandler(event, formElement.id)}
       />
     ));
+    console.log(this.props);
+    const addedRedirect =
+      this.props.response === 201 ? (
+        <Redirect
+          to={`/dashboard/myProjects/${this.props.match.params.projectId}/sprints`}
+        />
+      ) : null;
 
     return (
       <div className='form-container'>
+        {addedRedirect}
         <Card className='card card--form'>
           <Headline classe={'headline headline--big'}>AJOUT DE SPRINT</Headline>
           <div className='form--add-sprint'>{form}</div>
@@ -180,7 +191,8 @@ class AddSprint extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    userToken: state.auth.token
+    userToken: state.auth.token,
+    response: state.sprint.response
   };
 };
 

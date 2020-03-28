@@ -12,8 +12,10 @@ class Sprints extends Component {
     );
   }
 
-  sprintAddHandler = (id) => {
-    this.props.history.push(`/dashboard/myProjects/sprints/${id}/addSprint`);
+  sprintAddHandler = (projectId) => {
+    this.props.history.push(
+      `/dashboard/myProjects/${projectId}/sprints/addSprint`
+    );
   };
 
   taskDetailsHandler = (projectId, sprintId) => {
@@ -52,7 +54,7 @@ class Sprints extends Component {
           classe='btn btn--large btn--large--green'
           text='Ajouter un sprint'
           onClick={() => {
-            this.sprintAddHandler(this.props.match.params.id);
+            this.sprintAddHandler(this.props.match.params.projectId);
           }}
         />
         <div className='sprints'>

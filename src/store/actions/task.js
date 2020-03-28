@@ -46,9 +46,10 @@ export const addTasksStart = () => {
   };
 };
 
-export const addTasksSuccess = () => {
+export const addTasksSuccess = (response) => {
   return {
-    type: actionTypes.ADD_TASKS_SUCCESS
+    type: actionTypes.ADD_TASKS_SUCCESS,
+    response: response
   };
 };
 
@@ -84,7 +85,7 @@ export const addTasks = (
       .post(url, addTasksData, config)
       .then((response) => {
         console.log(response);
-        dispatch(addTasksSuccess());
+        dispatch(addTasksSuccess(response.status));
       })
       .catch((err) => {
         dispatch(addTasksFail(err.response));

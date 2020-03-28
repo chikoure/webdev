@@ -7,10 +7,11 @@ export const addProjectsStart = () => {
   };
 };
 
-export const addProjectsSuccess = () => {
+export const addProjectsSuccess = (response) => {
   return {
     type: actionTypes.ADD_PROJECTS_SUCCESS,
-    loading: true
+    loading: true,
+    response: response
   };
 };
 
@@ -60,7 +61,7 @@ export const addProject = (
       .post(url, addProjectData, config)
       .then((response) => {
         console.log(response);
-        dispatch(addProjectsSuccess());
+        dispatch(addProjectsSuccess(response.status));
       })
       .catch((err) => {
         dispatch(addProjectsFail(err.response));
@@ -97,13 +98,6 @@ export const fetchProjects = (token) => {
     axios
       .get('http://localhost:3001/projects/all', config)
       .then((res) => {
-        const fetchedProjects = [];
-        // for (let key in res.data) {
-        //   fetchedProjects.push({
-        //     ...res.data[key],
-        //     id: key
-        //   });
-        // }
         dispatch(fetchProjectsSuccess(res.data.projects));
       })
       .catch((err) => {

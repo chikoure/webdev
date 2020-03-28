@@ -3,7 +3,8 @@ import { updateObject } from '../utility';
 
 const initialState = {
   tasks: [],
-  loading: false
+  loading: false,
+  response: null
 };
 
 const addTasksStart = (state, action) => {
@@ -12,7 +13,8 @@ const addTasksStart = (state, action) => {
 
 const addTasksSuccess = (state, action) => {
   return updateObject(state, {
-    loading: false
+    loading: false,
+    response: action.response
   });
 };
 

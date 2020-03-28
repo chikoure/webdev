@@ -21,35 +21,32 @@ class Tasks extends Component {
   render() {
     console.log('TASKS', this.props);
 
-	let tasks = this.props.tasks.map((elem) => {
-		console.log(elem);
-		return (
-		  <Task
-			title={elem.title}
-			description={elem.description}
-			realisationTime={elem.realisationTime}
-			statusName={elem.status.name}
-		  />
-		);
-	});
+    let tasks = this.props.tasks.map((elem) => {
+      return (
+        <Task
+          title={elem.title}
+          description={elem.description}
+          realisationTime={elem.realisationTime}
+          statusName={elem.status.name}
+        />
+      );
+    });
 
     return (
       <div>
-		<Button
-			classe='btn btn--large btn--large--green'
-			text='Ajouter une tâche'
-			onClick={() => {
-			this.addTaskHandler(
-				this.props.match.params.projectId,
-				this.props.match.params.sprintId
-			);
-			}}
-		/>
-		<div className='tasks'>
-			<div className='tasks--container'>
-       			{tasks}
-			</div>
-		</div>
+        <Button
+          classe='btn btn--large btn--large--green'
+          text='Ajouter une tâche'
+          onClick={() => {
+            this.addTaskHandler(
+              this.props.match.params.projectId,
+              this.props.match.params.sprintId
+            );
+          }}
+        />
+        <div className='tasks'>
+          <div className='tasks--container'>{tasks}</div>
+        </div>
       </div>
     );
   }

@@ -170,7 +170,8 @@ class AddProject extends Component {
         touched: false
       }
     },
-    formIsValid: false
+    formIsValid: false,
+    redirect: false
   };
 
   checkValidity(value, rules) {
@@ -246,7 +247,6 @@ class AddProject extends Component {
       this.state.addProjectForm.gitHubRepoName.value,
       this.state.addProjectForm.gitHubRepoOwner.value
     );
-    return <Redirect to={'/dashboard/myProjects'} />;
   };
 
   render() {
@@ -270,9 +270,17 @@ class AddProject extends Component {
         changed={(event) => this.inputChangedHandler(event, formElement.id)}
       />
     ));
+    console.log(this.props);
+    const addedRedirect =
+      this.props.response === 201 ? (
+        <Redirect
+          to={`/dashboard/myProjects/${this.props.match.params.id}/sprints`}
+        />
+      ) : null;
 
     return (
       <div className='form-container'>
+        {addedRedirect}
         <Card className='card card--form'>
           <Headline classe={'headline headline--big'}>AJOUT DE PROJET</Headline>
           <div className='form--add-project'>{form}</div>
@@ -291,7 +299,8 @@ class AddProject extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    userToken: state.auth.token
+    userToken: state.auth.token,
+    response: state.project.response
   };
 };
 

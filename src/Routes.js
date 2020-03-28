@@ -50,7 +50,7 @@ export class Routes extends Component {
                 component={Sprints}
               />
               <Route
-                path='/dashboard/myProjects/sprints/:projectId/addSprint'
+                path='/dashboard/myProjects/:projectId/sprints/addSprint'
                 exact
                 component={AddSprint}></Route>
               <Route

@@ -53,9 +53,10 @@ export const addSprintsStart = () => {
   };
 };
 
-export const addSprintsSuccess = () => {
+export const addSprintsSuccess = (response) => {
   return {
-    type: actionTypes.ADD_SPRINTS_SUCCESS
+    type: actionTypes.ADD_SPRINTS_SUCCESS,
+    response: response
   };
 };
 
@@ -90,7 +91,7 @@ export const addSprints = (
       .post(url, addSprintData, config)
       .then((response) => {
         console.log(response);
-        dispatch(addSprintsSuccess());
+        dispatch(addSprintsSuccess(response.status));
       })
       .catch((err) => {
         dispatch(addSprintsFail(err.response));

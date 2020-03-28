@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import Input from '../components/UI/Inputs/Input';
 import Card from '../components/UI/cards/Card';
 import Headline from '../components/UI/Headlines/Headline/HeadLine';
@@ -161,10 +162,16 @@ class AddTasks extends Component {
       />
     ));
 
-    console.log(this.props);
+    const addedRedirect =
+      this.props.response === 201 ? (
+        <Redirect
+          to={`/dashboard/myProjects/${this.props.match.params.projectId}/sprints/${this.props.match.params.sprintId}/tasks`}
+        />
+      ) : null;
 
     return (
       <div className='form-container'>
+        {addedRedirect}
         <Card className='card card--form'>
           <Headline classe={'headline headline--big'}>AJOUT DE TÂCHE</Headline>
           <div className='form--add-sprint'>{form}</div>
@@ -183,7 +190,8 @@ class AddTasks extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    userToken: state.auth.token
+    userToken: state.auth.token,
+    response: state.task.response
   };
 };
 
