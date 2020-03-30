@@ -4,7 +4,7 @@ import { updateObject } from '../utility';
 const initialState = {
   tasks: [],
   loading: false,
-  response: null
+  response: false
 };
 
 const addTasksStart = (state, action) => {
@@ -15,6 +15,12 @@ const addTasksSuccess = (state, action) => {
   return updateObject(state, {
     loading: false,
     response: action.response
+  });
+};
+
+const addTasksEnd = (state, action) => {
+  return updateObject(state, {
+    response: false
   });
 };
 
@@ -46,6 +52,8 @@ const reducer = (state = initialState, action) => {
       return addTasksStart(state, action);
     case actionTypes.ADD_TASKS_SUCCESS:
       return addTasksSuccess(state, action);
+    case actionTypes.ADD_TASKS_END:
+      return addTasksEnd(state, action);
     case actionTypes.ADD_TASKS_FAIL:
       return addTasksFail(state, action);
     case actionTypes.FETCH_TASKS_START:

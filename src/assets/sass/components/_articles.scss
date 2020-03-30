@@ -72,3 +72,16 @@
   justify-content: center;
   padding: 350px 0;
 }
+
+.Home-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Wrench a {
+  height: 200px;
+  color: green;
+  width: 50%;
+  font-size: 200px;
+}

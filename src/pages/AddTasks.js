@@ -6,6 +6,7 @@ import Card from '../components/UI/cards/Card';
 import Headline from '../components/UI/Headlines/Headline/HeadLine';
 import Button from '../components/UI/Buttons/Button';
 import * as actions from '../store/actions/index';
+import Spinner from '../components/UI/Spinner/Spinner';
 
 class AddTasks extends Component {
   state = {
@@ -168,6 +169,9 @@ class AddTasks extends Component {
           to={`/dashboard/myProjects/${this.props.match.params.projectId}/sprints/${this.props.match.params.sprintId}/tasks`}
         />
       ) : null;
+    if (this.props.loading) {
+      form = <Spinner />;
+    }
 
     return (
       <div className='form-container'>
@@ -191,7 +195,8 @@ class AddTasks extends Component {
 const mapStateToProps = (state) => {
   return {
     userToken: state.auth.token,
-    response: state.task.response
+    response: state.task.response,
+    loading: state.task.loading
   };
 };
 

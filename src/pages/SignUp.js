@@ -4,6 +4,7 @@ import Input from '../components/UI/Inputs/Input';
 import Card from '../components/UI/cards/Card';
 import Headline from '../components/UI/Headlines/Headline/HeadLine';
 import Button from '../components/UI/Buttons/Button';
+import Spinner from '../components/UI/Spinner/Spinner';
 import * as actions from '../store/actions/index';
 
 class SignUp extends Component {
@@ -218,7 +219,6 @@ class SignUp extends Component {
   };
 
   render() {
-    console.log(this.state.signUpForm.status.value);
     const formElementsArray = [];
     for (let key in this.state.signUpForm) {
       formElementsArray.push({
@@ -240,6 +240,10 @@ class SignUp extends Component {
       />
     ));
 
+    if (this.props.loading) {
+      form = <Spinner />;
+    }
+
     return (
       <div className='form-container'>
         <Card className='card card--form'>
@@ -257,6 +261,12 @@ class SignUp extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    loading: state.auth.loading
+  };
+};
 const mapDispatchToProps = (dispatch) => {
   return {
     onRegister: (
@@ -286,4 +296,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

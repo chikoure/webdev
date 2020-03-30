@@ -9,15 +9,16 @@
   display: inline-block;
   text-decoration: none;
   font-family: 'Montserrat';
+  margin-left: 30px;
 
   &--large {
-      border: 2px solid $color-black;
-      border-radius: 3px;
-      color: $color-black;
-      letter-spacing: 1px;
-      vertical-align: middle;
-      padding: 13.5px 40px;
-      line-height: 19px;
+    border: 2px solid $color-black;
+    border-radius: 3px;
+    color: $color-black;
+    letter-spacing: 1px;
+    vertical-align: middle;
+    padding: 13.5px 40px;
+    line-height: 19px;
     &--green {
       border: 2px solid $color-emeraud;
       background-color: $color-emeraud;
@@ -46,7 +47,8 @@
     }
     &--light-grey {
       border: 2px solid $color-light-grey;
-      background-color: $color-light-grey;}
+      background-color: $color-light-grey;
+    }
   }
   &--login {
     padding: 13.5px 60px;
@@ -66,4 +68,10 @@
     border: 2px solid $color-white;
     color: $color-white;
   }
+}
+
+.link {
+  font-size: 14px;
+  color: $color-blue;
+  margin-left: 30px;
 }

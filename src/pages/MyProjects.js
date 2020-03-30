@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import * as actions from '../store/actions/index';
 import { connect } from 'react-redux';
 import Project from '../components/UI/Project/Project';
+import Spinner from '../components/UI/Spinner/Spinner';
 
 class MyProjects extends Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
     this.props.onFetchProjects(this.props.userToken);
   }
+
   sprintSelectedHandler = (id) => {
     this.props.history.push(`/dashboard/myProjects/${id}/sprints`);
   };
   render() {
-    if (this.props.projects[0]) {
-      console.log(this.props.projects);
-    }
     let projects = this.props.projects.map((elem) => {
       return (
         <Project
@@ -34,6 +34,9 @@ class MyProjects extends Component {
         />
       );
     });
+    if (this.props.loading) {
+      projects = <Spinner />;
+    }
 
     return (
       <div className='projects'>
@@ -46,7 +49,8 @@ class MyProjects extends Component {
 const mapStateToProps = (state) => {
   return {
     userToken: state.auth.token,
-    projects: state.project.projects
+    projects: state.project.projects,
+    loading: state.project.loading
   };
 };
 

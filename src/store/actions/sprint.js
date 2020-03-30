@@ -60,6 +60,12 @@ export const addSprintsSuccess = (response) => {
   };
 };
 
+export const addSprintsEnd = () => {
+  return {
+    type: actionTypes.ADD_SPRINTS_END
+  };
+};
+
 export const addSprintsFail = (error) => {
   return {
     type: actionTypes.ADD_SPRINTS_FAIL,
@@ -92,6 +98,7 @@ export const addSprints = (
       .then((response) => {
         console.log(response);
         dispatch(addSprintsSuccess(response.status));
+        dispatch(addSprintsEnd());
       })
       .catch((err) => {
         dispatch(addSprintsFail(err.response));

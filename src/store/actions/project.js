@@ -15,6 +15,12 @@ export const addProjectsSuccess = (response) => {
   };
 };
 
+export const addProjectsEnd = () => {
+  return {
+    type: actionTypes.ADD_PROJECTS_END
+  };
+};
+
 export const addProjectsFail = (error) => {
   return {
     type: actionTypes.ADD_PROJECTS_FAIL,
@@ -62,6 +68,7 @@ export const addProject = (
       .then((response) => {
         console.log(response);
         dispatch(addProjectsSuccess(response.status));
+        dispatch(addProjectsEnd());
       })
       .catch((err) => {
         dispatch(addProjectsFail(err.response));

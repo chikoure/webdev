@@ -4,7 +4,7 @@ import { updateObject } from '../utility';
 const initialState = {
   sprints: [],
   loading: false,
-  response: null
+  response: false
 };
 
 const addSprintsStart = (state, action) => {
@@ -15,6 +15,12 @@ const addSprintsSuccess = (state, action) => {
   return updateObject(state, {
     loading: false,
     response: action.response
+  });
+};
+
+const addSprintsEnd = (state, action) => {
+  return updateObject(state, {
+    response: false
   });
 };
 
@@ -46,6 +52,8 @@ const reducer = (state = initialState, action) => {
       return addSprintsStart(state, action);
     case actionTypes.ADD_SPRINTS_SUCCESS:
       return addSprintsSuccess(state, action);
+    case actionTypes.ADD_SPRINTS_END:
+      return addSprintsEnd(state, action);
     case actionTypes.ADD_SPRINTS_FAIL:
       return addSprintsFail(state, action);
     case actionTypes.FETCH_SPRINTS_START:

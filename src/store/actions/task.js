@@ -53,6 +53,12 @@ export const addTasksSuccess = (response) => {
   };
 };
 
+export const addTasksEnd = () => {
+  return {
+    type: actionTypes.ADD_TASKS_END
+  };
+};
+
 export const addTasksFail = (error) => {
   return {
     type: actionTypes.ADD_TASKS_FAIL,
@@ -86,6 +92,7 @@ export const addTasks = (
       .then((response) => {
         console.log(response);
         dispatch(addTasksSuccess(response.status));
+        dispatch(addTasksEnd());
       })
       .catch((err) => {
         dispatch(addTasksFail(err.response));

@@ -58,14 +58,6 @@ const Input = (props) => {
       <label className='form-label' for={props.for}>
         {props.label}
       </label>
-      {/* <input
-        className='form--input'
-        type={props.type}
-        name={props.name}
-        id={props.id}
-        required={props.requiered}
-        onChange={props.onChange}
-      /> */}
       {inputElement}
     </div>
   );

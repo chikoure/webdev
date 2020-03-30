@@ -3,9 +3,11 @@ import * as actions from '../store/actions/index';
 import { connect } from 'react-redux';
 import Button from '../components/UI/Buttons/Button';
 import Sprint from '../components/Sprints/Sprint';
+import Spinner from '../components/UI/Spinner/Spinner';
 
 class Sprints extends Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
     this.props.onFetchSprints(
       this.props.userToken,
       this.props.match.params.projectId
@@ -25,13 +27,7 @@ class Sprints extends Component {
   };
 
   render() {
-    if (this.props.sprints) {
-      console.log(this.props.sprints);
-    }
-    console.log(this.props);
-
     let sprints = this.props.sprints.map((elem) => {
-      console.log(elem);
       return (
         <Sprint
           title={elem.title}
@@ -48,6 +44,10 @@ class Sprints extends Component {
         />
       );
     });
+
+    if (this.props.loading) {
+      sprints = <Spinner />;
+    }
     return (
       <div>
         <Button
@@ -68,7 +68,8 @@ class Sprints extends Component {
 const mapStateToProps = (state) => {
   return {
     userToken: state.auth.token,
-    sprints: state.sprint.sprints
+    sprints: state.sprint.sprints,
+    loading: state.sprint.loading
   };
 };
 

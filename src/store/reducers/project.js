@@ -20,6 +20,12 @@ const addProjectsSuccess = (state, action) => {
   });
 };
 
+const addProjectsEnd = (state, action) => {
+  return updateObject(state, {
+    response: false
+  });
+};
+
 const addProjectsFail = (state, action) => {
   return updateObject(state, {
     error: action.error,
@@ -48,6 +54,8 @@ const reducer = (state = initialState, action) => {
       return addProjectsStart(state, action);
     case actionTypes.ADD_PROJECTS_SUCCESS:
       return addProjectsSuccess(state, action);
+    case actionTypes.ADD_PROJECTS_END:
+      return addProjectsEnd(state, action);
     case actionTypes.ADD_PROJECTS_FAIL:
       return addProjectsFail(state, action);
     case actionTypes.FETCH_PROJECTS_START:

@@ -14,9 +14,11 @@ import Sprints from './pages/Sprints';
 import Tasks from './pages/Tasks';
 import AddTasks from './pages/AddTasks';
 import Calendar from './pages/Calendar';
+import Home from './pages/Home';
 
 export class Routes extends Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
     this.props.onAutoSignup();
   }
 
@@ -26,6 +28,7 @@ export class Routes extends Component {
         <Route path='/dashboard'>
           <LayoutDashboard isAuthenticated={this.props.Authenticated}>
             <Switch>
+              <Route path='/dashboard/home' exact component={Home}></Route>
               <Route
                 path='/dashboard/register'
                 exact

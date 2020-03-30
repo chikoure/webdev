@@ -6,7 +6,7 @@ import Button from '../components/UI/Buttons/Button';
 import Toast from '../components/UI/Toasts/Toast';
 import * as actions from '../store/actions/index';
 import { Redirect } from 'react-router-dom';
-import axios from '../axios-instance';
+import Spinner from '../components/UI/Spinner/Spinner';
 import { connect } from 'react-redux';
 
 class Login extends Component {
@@ -131,7 +131,6 @@ class Login extends Component {
         changed={(event) => this.inputChangedHandler(event, formElement.id)}
       />
     ));
-    console.log('here', this.props.RedirectPath);
     let authRedirect = null;
     if (this.props.isAuthenticated) {
       authRedirect = <Redirect to={this.props.RedirectPath} />;
@@ -140,7 +139,13 @@ class Login extends Component {
     let errorMessage = null;
 
     if (this.props.error) {
-      errorMessage = <Toast text={this.props.error} classe='toast toast--red' />;
+      errorMessage = (
+        <Toast text={this.props.error} classe='toast toast--red' />
+      );
+    }
+
+    if (this.props.loading) {
+      form = <Spinner />;
     }
 
     return (
@@ -150,7 +155,7 @@ class Login extends Component {
           <Headline classe={'headline headline--big'}>CONNEXION</Headline>
           <div className='form--login'>{form}</div>
           {errorMessage}
-          <div>
+          <div className='AuthLink-container'>
             <Button
               classe='btn btn--large btn--large--green btn--large--green-login'
               text='CONNEXION'
@@ -158,8 +163,8 @@ class Login extends Component {
             />
             <Button
               href='/dashboard/register'
-              classe='btn btn--large btn--signup'
-              text='INSCRIPTION'
+              classe='link'
+              text='Nouveau sur WeDev? Créer un compte'
             />
           </div>
         </Card>

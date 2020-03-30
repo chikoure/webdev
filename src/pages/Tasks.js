@@ -3,9 +3,11 @@ import * as actions from '../store/actions/index';
 import { connect } from 'react-redux';
 import Button from '../components/UI/Buttons/Button';
 import Task from '../components/Tasks/Task';
+import Spinner from '../components/UI/Spinner/Spinner';
 
 class Tasks extends Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
     this.props.onFetchTasks(
       this.props.userToken,
       this.props.match.params.projectId,
@@ -19,8 +21,6 @@ class Tasks extends Component {
     );
   };
   render() {
-    console.log('TASKS', this.props);
-
     let tasks = this.props.tasks.map((elem) => {
       return (
         <Task
@@ -31,6 +31,10 @@ class Tasks extends Component {
         />
       );
     });
+
+    if (this.props.loading) {
+      tasks = <Spinner />;
+    }
 
     return (
       <div>
@@ -56,7 +60,8 @@ const mapStateToProps = (state) => {
   return {
     userToken: state.auth.token,
     sprints: state.sprint.sprints,
-    tasks: state.task.tasks
+    tasks: state.task.tasks,
+    loading: state.task.loading
   };
 };
 

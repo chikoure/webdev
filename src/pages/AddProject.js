@@ -5,6 +5,7 @@ import Input from '../components/UI/Inputs/Input';
 import Card from '../components/UI/cards/Card';
 import Headline from '../components/UI/Headlines/Headline/HeadLine';
 import Button from '../components/UI/Buttons/Button';
+import Spinner from '../components/UI/Spinner/Spinner';
 import * as actions from '../store/actions/index';
 
 class AddProject extends Component {
@@ -270,13 +271,15 @@ class AddProject extends Component {
         changed={(event) => this.inputChangedHandler(event, formElement.id)}
       />
     ));
-    console.log(this.props);
+
     const addedRedirect =
       this.props.response === 201 ? (
-        <Redirect
-          to={`/dashboard/myProjects/${this.props.match.params.id}/sprints`}
-        />
+        <Redirect to={'/dashboard/myProjects'} />
       ) : null;
+
+    if (this.props.loading) {
+      form = <Spinner />;
+    }
 
     return (
       <div className='form-container'>
@@ -300,7 +303,8 @@ class AddProject extends Component {
 const mapStateToProps = (state) => {
   return {
     userToken: state.auth.token,
-    response: state.project.response
+    response: state.project.response,
+    loading: state.project.loading
   };
 };
 

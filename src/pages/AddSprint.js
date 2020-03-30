@@ -5,6 +5,7 @@ import Card from '../components/UI/cards/Card';
 import Headline from '../components/UI/Headlines/Headline/HeadLine';
 import Button from '../components/UI/Buttons/Button';
 import * as actions from '../store/actions/index';
+import Spinner from '../components/UI/Spinner/Spinner';
 import { Redirect } from 'react-router';
 
 class AddSprint extends Component {
@@ -162,13 +163,17 @@ class AddSprint extends Component {
         changed={(event) => this.inputChangedHandler(event, formElement.id)}
       />
     ));
-    console.log(this.props);
+    console.log(this.props.response);
     const addedRedirect =
       this.props.response === 201 ? (
         <Redirect
           to={`/dashboard/myProjects/${this.props.match.params.projectId}/sprints`}
         />
       ) : null;
+
+    if (this.props.loading) {
+      form = <Spinner />;
+    }
 
     return (
       <div className='form-container'>
@@ -192,7 +197,8 @@ class AddSprint extends Component {
 const mapStateToProps = (state) => {
   return {
     userToken: state.auth.token,
-    response: state.sprint.response
+    response: state.sprint.response,
+    loading: state.sprint.loading
   };
 };
 
