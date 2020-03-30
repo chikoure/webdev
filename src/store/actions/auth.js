@@ -58,9 +58,16 @@ export const registerStart = () => {
   };
 };
 
-export const registerSuccess = () => {
+export const registerSuccess = (response) => {
   return {
-    type: actionTypes.REGISTER_SUCCESS
+    type: actionTypes.REGISTER_SUCCESS,
+    response: response
+  };
+};
+
+export const registerEnd = () => {
+  return {
+    type: actionTypes.REGISTER_END
   };
 };
 
@@ -100,7 +107,8 @@ export const register = (
       .post(url, authData)
       .then((response) => {
         console.log(response);
-        dispatch(registerSuccess());
+        dispatch(registerSuccess(response.status));
+        dispatch(registerEnd());
       })
       .catch((err) => {
         dispatch(registerFail(err.response.data.error));

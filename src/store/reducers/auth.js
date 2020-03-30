@@ -6,6 +6,7 @@ const initialState = {
   userId: null,
   error: null,
   loading: false,
+  response: false,
   authRedirectPath: '/dashboard'
 };
 
@@ -29,7 +30,16 @@ const authSuccess = (state, action) => {
 
 const registerSuccess = (state, action) => {
   return updateObject(state, {
-    loading: false
+    loading: false,
+    response: action.response
+  });
+};
+
+const registerEnd = (state, action) => {
+  return updateObject(state, {
+    error: null,
+    loading: false,
+    response: false
   });
 };
 
@@ -65,6 +75,8 @@ const reducer = (state = initialState, action) => {
       return registerStart(state, action);
     case actionTypes.REGISTER_SUCCESS:
       return registerSuccess(state, action);
+    case actionTypes.REGISTER_END:
+      return registerEnd(state, action);
     case actionTypes.REGISTER_FAIL:
       return registerFail(state, action);
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import Input from '../components/UI/Inputs/Input';
 import Card from '../components/UI/cards/Card';
 import Headline from '../components/UI/Headlines/Headline/HeadLine';
@@ -244,9 +245,13 @@ class SignUp extends Component {
       form = <Spinner />;
     }
 
+    const redirectRegister =
+      this.props.response === 201 ? <Redirect to={'/dashboard/login'} /> : null;
+
     return (
       <div className='form-container'>
         <Card className='card card--form'>
+          {redirectRegister}
           <Headline classe={'headline headline--big'}>INSCRIPTION</Headline>
           <div className='form--signup'>{form}</div>
           <div>
@@ -264,7 +269,8 @@ class SignUp extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    loading: state.auth.loading
+    loading: state.auth.loading,
+    response: state.auth.response
   };
 };
 const mapDispatchToProps = (dispatch) => {

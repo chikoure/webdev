@@ -1,69 +1,70 @@
 .sprint {
-	font: 'Montserrat';
-	text-align: center;
-	&--title {
-		font-weight: bold;
-		border: 1px solid;
-		padding: 13.5px;
-	}
-	&--container {
-		width: 33%;
-		margin-bottom: 1.5rem;
-		// display: flex;
-		justify-content: space-around;
-	}
-	&--content {
-		width: 50%;
-	}
-	&--data ul {
-		text-align: start;
-		:first-child {
-			padding-top: 1rem;
-		}
-		li {
-			margin-bottom: 1rem;
-		}
-	}
+  font: 'Montserrat';
+  text-align: center;
+  &--title {
+    font-weight: bold;
+    border: 1px solid;
+    padding: 13.5px;
+  }
+  &--container {
+    width: 33%;
+    margin-bottom: 1.5rem;
+    // display: flex;
+    justify-content: space-around;
+  }
+  &--content {
+    width: 50%;
+  }
+  &--data ul {
+    text-align: start;
+    :first-child {
+      padding-top: 1rem;
+    }
+    li {
+      margin-bottom: 1rem;
+    }
+  }
 }
 
 .sprints {
-	justify-content: space-around;
-	width: 100%;
-	flex-direction: row;
-	display: flex;
-	padding-top: 100px;
-	padding-bottom: 100px;
-	&--container {
-		width: 90%;
-		flex-wrap: wrap;
-		display: flex;
-	}
+  justify-content: space-around;
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  &--container {
+    width: 90%;
+    flex-wrap: wrap;
+    display: flex;
+  }
 }
 
 .statut {
-	background-color: $color-emeraud;
-    // border-radius:50%;
-    width: 20px;
-    height: 20px;
-	display: flex;
-	&--red {
-		background-color: $color-red;
-	}
-	&--emeraud {
-		background-color: $color-emeraud;
-	}
-	&--dark-grey {
-		background-color: $color-dark-grey;
-	}
-    @media(max-width:600px) {
-        display:none;
-    }
+  background-color: $color-emeraud;
+  // border-radius:50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  &--red {
+    background-color: $color-red;
+  }
+  &--emeraud {
+    background-color: $color-emeraud;
+  }
+  &--dark-grey {
+    background-color: $color-dark-grey;
+  }
+  @media (max-width: 600px) {
+    display: none;
+  }
 }
 
-.lien-task{
-	padding-bottom: 1rem;
-	padding-top: 1rem;
-	&:hover {
-		cursor: pointer;
-	}
+.lien-task {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  &:hover {
+    cursor: pointer;
+    color: $color-blue;
+  }
 }
