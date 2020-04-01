@@ -10,9 +10,11 @@ import SignUp from './pages/SignUp';
 import Routes from './Routes';
 
 class App extends Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
     this.props.onAutoSignup();
   }
+
   render() {
     return <Routes />;
   }

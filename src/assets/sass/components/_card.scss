@@ -4,8 +4,20 @@
   text-align: center;
   box-shadow: 5px 13px 26px 6px rgba(88, 88, 88, 0.5);
 
-  &--project, &--sprint, &--task {
+  &--project,
+  &--sprint,
+  &--task {
     width: 95%;
+  }
+  &--metrics {
+    width: 25%;
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    p {
+      padding-bottom: 40px;
+    }
   }
   &--home {
     padding: 120px 40px;

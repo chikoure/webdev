@@ -85,3 +85,10 @@
   width: 50%;
   font-size: 200px;
 }
+
+.metrics-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30px 30px;
+}
