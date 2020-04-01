@@ -36,6 +36,8 @@ class Sprints extends Component {
           startDate={elem.startDate}
           dueDate={elem.dueDate}
           statusName={elem.status.name}
+          createdAt={elem.createdAt}
+          updatedAt={elem.updatedAt}
           tasks={elem.tasks}
           clicked={() => {
             this.taskDetailsHandler(

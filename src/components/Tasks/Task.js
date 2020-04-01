@@ -3,6 +3,8 @@ import Hoc from '../../hoc/Hoc';
 import Headline from '../UI/Headlines/Headline/HeadLine';
 import Card from '../UI/cards/Card';
 import { withRouter } from 'react-router-dom';
+import Moment from 'react-moment';
+import 'moment/locale/fr';
 
 const Task = (props) => {
   let status = 'statut';
@@ -31,8 +33,9 @@ const Task = (props) => {
               <ul class='task--ul'>
                 <li>Description : {props.description}</li>
                 <li>Temps de réalisation : {props.realisationTime} jours</li>
-                <li>Date de création : {new Date(props.createdAt).toDateString()}</li>
-                <li>Dernière modification : {new Date(props.updatedAt).toDateString()}</li>
+                <li>Date de création : <Moment format="DD/MM/YYYY">{props.createdAt}</Moment></li>
+                <li>Dernière modification : <Moment fromNow>{props.updatedAt}</Moment></li>
+                <li>Statut : {props.statusName}</li>
               </ul>
             </div>
           </div>

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Hoc from '../../hoc/Hoc';
 import Headline from '../UI/Headlines/Headline/HeadLine';
 import Card from '../UI/cards/Card';
+import Moment from 'react-moment';
+import 'moment/locale/fr';
 import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -33,10 +35,10 @@ const Sprint = (props) => {
             </Headline>
             <div class='sprint--data'>
               <ul class='sprint--ul'>
-                <li>
-                  Date de début : {new Date(props.startDate).toDateString()}
-                </li>
-                <li>Date de fin : {new Date(props.dueDate).toDateString()}</li>
+                <li>Date de début : <Moment format="DD/MM/YYYY">{props.startDate}</Moment></li>
+                <li>Date de fin : <Moment format="DD/MM/YYYY">{props.dueDate}</Moment></li>
+                <li>Date de création : <Moment format="DD/MM/YYYY">{props.createdAt}</Moment></li>
+                <li>Dernière modification : <Moment fromNow>{props.updatedAt}</Moment></li>
                 <li>Statut : {props.statusName}</li>
               </ul>
               <div className='lien-task' onClick={props.clicked}>

@@ -8,6 +8,8 @@ import Logout from '../src/pages/Logout';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Routes from './Routes';
+import Moment from 'react-moment';
+import 'moment-timezone';
 
 class App extends Component {
   constructor(props) {

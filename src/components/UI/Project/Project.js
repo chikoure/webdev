@@ -3,6 +3,8 @@ import Hoc from '../../../hoc/Hoc';
 import Headline from '../Headlines/Headline/HeadLine';
 import Card from '../cards/Card';
 import { withRouter } from 'react-router-dom';
+import Moment from 'react-moment';
+import 'moment/locale/fr';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -36,30 +38,14 @@ const Project = (props) => {
           </Headline>
           <div class='project--data'>
             <ul class='project--ul'>
-              <li>
-                Nom du Git : {props.gitName}
-              </li>
-              <li>
-                Propiétaire du Git : {props.gitOwner}
-              </li>
-              <li>
-                Date de début : {new Date(props.startDate).toDateString()}
-              </li>
-              <li>
-                Date de fin : {new Date(props.dueDate).toDateString()}
-              </li>
-              <li>
-                Délais de réalisation : {props.estimateAmount} jours
-              </li>
-              <li>
-                Coût horaire journalier : {props.hourlyCostDay}€
-              </li>
-              <li>
-                Date de complétion :{' '}{new Date(props.completionDeadline).toDateString()}
-              </li>
-              <li>
-                Stack utilisé : {props.stacks}
-              </li>
+              <li>Nom du Git : {props.gitName}</li>
+              <li>Propiétaire du Git : {props.gitOwner}</li>
+              <li>Date de début : <Moment format="DD/MM/YYYY">{props.startDate}</Moment></li>
+              <li>Date de fin : <Moment format="DD/MM/YYYY">{props.dueDate}</Moment></li>
+              <li>Délais de réalisation : {props.estimateAmount} jours</li>
+              <li>Coût horaire journalier : {props.hourlyCostDay}€</li>
+              <li>Date de complétion : <Moment format="DD/MM/YYYY">{props.completionDeadline}</Moment></li>
+              <li>Stack utilisé : {props.stacks}</li>
             </ul>
             <div className='lien-sprint' onClick={props.clicked}>
               Sprints
