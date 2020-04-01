@@ -29,7 +29,7 @@ export const fetchSprints = (token, projectId) => {
       headers: { Authorization: `Bearer ${token}` }
     };
     axios
-      .get(`http://localhost:3001/sprints/${projectId}/all`, config)
+      .get(`https://wedevback2.herokuapp.com/sprints/${projectId}/all`, config)
       .then((res) => {
         console.log(res);
         const fetchedSprints = [];
@@ -92,7 +92,7 @@ export const addSprints = (
     const config = {
       headers: { Authorization: `Bearer ${token}` }
     };
-    let url = `http://localhost:3001/sprints/${projectId}`;
+    let url = `https://wedevback2.herokuapp.com/sprints/${projectId}`;
     axios
       .post(url, addSprintData, config)
       .then((response) => {

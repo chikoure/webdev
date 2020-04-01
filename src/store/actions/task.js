@@ -29,7 +29,10 @@ export const fetchTasks = (token, projectId, sprintId) => {
       headers: { Authorization: `Bearer ${token}` }
     };
     axios
-      .get(`http://localhost:3001/tasks/${projectId}/${sprintId}/all`, config)
+      .get(
+        `https://wedevback2.herokuapp.com/tasks/${projectId}/${sprintId}/all`,
+        config
+      )
       .then((res) => {
         console.log(res);
         dispatch(fetchTasksSuccess(res.data.tasks));
@@ -86,7 +89,7 @@ export const addTasks = (
     const config = {
       headers: { Authorization: `Bearer ${token}` }
     };
-    let url = `http://localhost:3001/tasks/${projectId}/${sprintId}`;
+    let url = `https://wedevback2.herokuapp.com/tasks/${projectId}/${sprintId}`;
     axios
       .post(url, addTasksData, config)
       .then((response) => {

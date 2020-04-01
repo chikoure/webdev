@@ -38,7 +38,7 @@ export const auth = (email, password) => {
       email: email,
       password: password
     };
-    let url = 'http://localhost:3001/users/login';
+    let url = 'https://wedevback2.herokuapp.com/users/login';
     axios
       .post(url, authData)
       .then((response) => {
@@ -102,7 +102,7 @@ export const register = (
       status: status,
       profil: profil
     };
-    let url = 'http://localhost:3001/users';
+    let url = 'https://wedevback2.herokuapp.com/users';
     axios
       .post(url, authData)
       .then((response) => {

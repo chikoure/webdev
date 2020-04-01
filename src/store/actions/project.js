@@ -62,7 +62,7 @@ export const addProject = (
     const config = {
       headers: { Authorization: `Bearer ${token}` }
     };
-    let url = 'http://localhost:3001/projects';
+    let url = 'https://wedevback2.herokuapp.com/projects';
     axios
       .post(url, addProjectData, config)
       .then((response) => {
@@ -103,7 +103,7 @@ export const fetchProjects = (token) => {
       headers: { Authorization: `Bearer ${token}` }
     };
     axios
-      .get('http://localhost:3001/projects/all', config)
+      .get('https://wedevback2.herokuapp.com/projects/all', config)
       .then((res) => {
         dispatch(fetchProjectsSuccess(res.data.projects));
       })
