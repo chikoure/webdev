@@ -13,7 +13,9 @@ library.add(faWrench);
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.props.onFetchProjects(this.props.userToken);
+    if (this.props.userToken) {
+      this.props.onFetchProjects(this.props.userToken);
+    }
   }
   render() {
     console.log(this.props.projects);
@@ -37,51 +39,54 @@ class Home extends Component {
       chiffreDaffaire,
       NumberOfProjects
     );
-    return (
-      <div className='Home'>
-        {/* <div className='Home--container'>
-          <h1>LA PAGE D'ACCUEIL EST EN COURS DE DÉVELLOPEMENT</h1>
-          <div className='Wrench'>
-            <a>
-              <FontAwesomeIcon icon={faWrench} />
-            </a>
-          </div>
-        </div> */}
-        <div className='metrics-container'>
-          <Card className='card card--metrics'>
-            <HeadLine classe='headline headline--medium'>
-              Projets réalisés
-            </HeadLine>
-            <HeadLine classe='headline headline--small'>
-              {projectsDoneNumber}/{NumberOfProjects}
-            </HeadLine>
-          </Card>
-          <Card className='card card--metrics'>
-            <HeadLine classe='headline headline--medium'>
-              Projets en cours
-            </HeadLine>
-            <HeadLine classe='headline headline--small'>
-              {projectsInProgress}
-            </HeadLine>
-          </Card>
-          <Card className='card card--metrics'>
-            <HeadLine classe='headline headline--medium'>
-              Chiffre d'affaire
-            </HeadLine>
-            <HeadLine classe='headline headline--small'>
-              {chiffreDaffaire} €
-            </HeadLine>
-          </Card>
-        </div>
+    console.log('Loading', this.props.loading);
+    let metrics = this.props.loading ? (
+      <Spinner />
+    ) : (
+      <div className='metrics-container'>
+        <Card className='card card--metrics'>
+          <HeadLine classe='headline headline--medium'>
+            Projets réalisés
+          </HeadLine>
+          <HeadLine classe='headline headline--small'>
+            {projectsDoneNumber}/{NumberOfProjects}
+          </HeadLine>
+        </Card>
+        <Card className='card card--metrics'>
+          <HeadLine classe='headline headline--medium'>
+            Projets en cours
+          </HeadLine>
+          <HeadLine classe='headline headline--small'>
+            {projectsInProgress}
+          </HeadLine>
+        </Card>
+        <Card className='card card--metrics'>
+          <HeadLine classe='headline headline--medium'>
+            Chiffre d'affaire
+          </HeadLine>
+          <HeadLine classe='headline headline--small'>
+            {chiffreDaffaire} €
+          </HeadLine>
+        </Card>
       </div>
     );
+    if (!this.props.userToken) {
+      metrics = (
+        <div className='data-error'>
+          <h1>Aucune donnée disponible, connectez vous s'ils vous plait</h1>
+        </div>
+      );
+    }
+
+    return <div className='Home'>{metrics}</div>;
   }
 }
 
 const mapStateToProps = (state) => {
   return {
     projects: state.project.projects,
-    userToken: state.auth.token
+    userToken: state.auth.token,
+    loading: state.project.loading
   };
 };
 
