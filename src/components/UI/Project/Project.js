@@ -42,7 +42,7 @@ const Project = (props) => {
               <li>Propiétaire du Git : {props.gitOwner}</li>
               <li>Date de début : <Moment format="DD/MM/YYYY">{props.startDate}</Moment></li>
               <li>Date de fin : <Moment format="DD/MM/YYYY">{props.dueDate}</Moment></li>
-              <li>Délais de réalisation : {props.estimateAmount} jours</li>
+              <li>Délais de réalisation : {props.estimateAmount} heures</li>
               <li>Coût horaire journalier : {props.hourlyCostDay}€</li>
               <li>Date de complétion : <Moment format="DD/MM/YYYY">{props.completionDeadline}</Moment></li>
               <li>Stack utilisé : {props.stacks}</li>
