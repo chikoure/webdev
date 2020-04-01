@@ -66,7 +66,7 @@ class Home extends Component {
     if (!this.props.userToken) {
       metrics = (
         <div className='data-error'>
-          <h1>Aucune donnée disponible, connectez vous s'ils vous plait</h1>
+          <h1>Aucune donnée disponible, veuillez vous connecter.</h1>
         </div>
       );
     }

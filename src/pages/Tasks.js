@@ -33,6 +33,8 @@ class Tasks extends Component {
           title={elem.title}
           description={elem.description}
           realisationTime={elem.realisationTime}
+          createdAt={elem.createdAt}
+          updatedAt={elem.updatedAt}
           statusName={elem.status.name}
         />
       );

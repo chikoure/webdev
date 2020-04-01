@@ -31,7 +31,8 @@ const Task = (props) => {
               <ul class='task--ul'>
                 <li>Description : {props.description}</li>
                 <li>Temps de réalisation : {props.realisationTime} jours</li>
-                <li>Statut : {props.statusName}</li>
+                <li>Date de création : {new Date(props.createdAt).toDateString()}</li>
+                <li>Dernière modification : {new Date(props.updatedAt).toDateString()}</li>
               </ul>
             </div>
           </div>
