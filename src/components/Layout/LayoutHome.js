@@ -17,7 +17,7 @@ export default class Layout extends Component {
   render() {
     return (
       <Hoc>
-        <Header />
+        <Header isAuthenticated={this.props.isAuth} />
         <article className='presentation'>
           <div className='test'>
             <div className='webdev'>
@@ -96,6 +96,7 @@ export default class Layout extends Component {
             <Button
               classe='btn btn--large btn--large--green'
               text="JE M'INSCRIS"
+              href='/dashboard/register'
             />
           </Card>
         </article>

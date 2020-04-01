@@ -3,7 +3,9 @@ import React from 'react';
 const Logo = (props) => {
   return (
     <div>
-      <img src={props.logoLink} alt='wedev logo' />
+      <a href='/'>
+        <img src={props.logoLink} alt='wedev logo' />
+      </a>
     </div>
   );
 };

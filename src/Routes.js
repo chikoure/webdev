@@ -71,9 +71,9 @@ export class Routes extends Component {
         </Route>
 
         <Route>
-          <Switch>
-            <Route path='/' exact component={LayoutHome} />
-          </Switch>
+          <Route path='/' exact>
+            <LayoutHome isAuth={this.props.Authenticated}></LayoutHome>
+          </Route>
         </Route>
       </Router>
     );

@@ -5,15 +5,30 @@ import logoHeader from '../../assets/img/logo.svg';
 import SocialMedia from '../UI/Icons/SocialMedia/SocialMedia';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <div className='main-header'>
       <div className='login'>
         <Logo logoLink={logoHeader} />
-        <Button
-          href='/dashboard/login'
-          classe={'btn btn--login'}
-          text='LOGIN'></Button>
+        <div>
+          {props.isAuthenticated ? (
+            <Button
+              href='/dashboard/home'
+              classe={'btn btn--login'}
+              text='DASHBOARD'></Button>
+          ) : null}
+          {props.isAuthenticated ? (
+            <Button
+              href='/dashboard/login'
+              classe={'btn btn--login'}
+              text='LOGOUT'></Button>
+          ) : (
+            <Button
+              href='/dashboard/login'
+              classe={'btn btn--login'}
+              text='LOGIN'></Button>
+          )}
+        </div>
       </div>
       <div className='sign-up'>
         <h1>
