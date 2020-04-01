@@ -5,9 +5,8 @@ import Card from '../UI/cards/Card';
 import { withRouter } from 'react-router-dom';
 
 const Task = (props) => {
-  let status = 'statut'
-  switch(props.statusName)
-  {
+  let status = 'statut';
+  switch (props.statusName) {
     case 'En cours':
       status += ' statut--red';
       break;
@@ -22,27 +21,24 @@ const Task = (props) => {
   return (
     <Hoc>
       <div className='task--container'>
-      <Card className='card card--task'>
-        <div>
-          <Headline classe='headline headline--small'>
-            <span title={props.statusName} className={status}></span>
-            {(props.title).toUpperCase()}
-          </Headline>
-          <div class='task--data'>
-            <ul class='task--ul'>
-              <li>
-                Description : {props.description}
-              </li>
-              <li>
-                Temps de réalisation : {props.realisationTime} jours
-              </li>
-            </ul>
+        <Card className='card card--task'>
+          <div>
+            <Headline classe='headline headline--small'>
+              <span title={props.statusName} className={status}></span>
+              {props.title.toUpperCase()}
+            </Headline>
+            <div class='task--data'>
+              <ul class='task--ul'>
+                <li>Description : {props.description}</li>
+                <li>Temps de réalisation : {props.realisationTime} jours</li>
+                <li>Statut : {props.statusName}</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </Card>
+        </Card>
       </div>
     </Hoc>
   );
-}
+};
 
 export default withRouter(Task);

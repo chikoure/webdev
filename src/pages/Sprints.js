@@ -8,10 +8,12 @@ import Spinner from '../components/UI/Spinner/Spinner';
 class Sprints extends Component {
   constructor(props) {
     super(props);
-    this.props.onFetchSprints(
-      this.props.userToken,
-      this.props.match.params.projectId
-    );
+    if (this.props.userToken && this.props.match.params.projectId) {
+      this.props.onFetchSprints(
+        this.props.userToken,
+        this.props.match.params.projectId
+      );
+    }
   }
 
   sprintAddHandler = (projectId) => {

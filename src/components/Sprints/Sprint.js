@@ -37,7 +37,7 @@ const Sprint = (props) => {
                   Date de début : {new Date(props.startDate).toDateString()}
                 </li>
                 <li>Date de fin : {new Date(props.dueDate).toDateString()}</li>
-                <li>Nom du Git : {props.statusName}</li>
+                <li>Statut : {props.statusName}</li>
               </ul>
               <div className='lien-task' onClick={props.clicked}>
                 Tasks &nbsp;

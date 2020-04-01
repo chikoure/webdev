@@ -8,11 +8,17 @@ import Spinner from '../components/UI/Spinner/Spinner';
 class Tasks extends Component {
   constructor(props) {
     super(props);
-    this.props.onFetchTasks(
-      this.props.userToken,
-      this.props.match.params.projectId,
+    if (
+      this.props.userToken &&
+      this.props.match.params.projectId &&
       this.props.match.params.sprintId
-    );
+    ) {
+      this.props.onFetchTasks(
+        this.props.userToken,
+        this.props.match.params.projectId,
+        this.props.match.params.sprintId
+      );
+    }
   }
 
   addTaskHandler = (projectId, sprintId) => {

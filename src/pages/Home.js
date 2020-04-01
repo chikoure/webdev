@@ -18,7 +18,6 @@ class Home extends Component {
     }
   }
   render() {
-    console.log(this.props.projects);
     const NumberOfProjects = this.props.projects.length;
 
     let projectsDoneNumber = 0;
@@ -33,13 +32,7 @@ class Home extends Component {
       }
       return projectsDoneNumber, projectsInProgress, chiffreDaffaire;
     });
-    console.log(
-      projectsDoneNumber,
-      projectsInProgress,
-      chiffreDaffaire,
-      NumberOfProjects
-    );
-    console.log('Loading', this.props.loading);
+
     let metrics = this.props.loading ? (
       <Spinner />
     ) : (
